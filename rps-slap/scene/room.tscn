@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://jotosmeuxfu0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcc4l"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gcc4l"]
+material = SubResource("StandardMaterial3D_gcc4l")
+size = Vector2(5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gcc4l"]
+size = Vector3(0.5, 1, 0.5)
+
+[sub_resource type="Environment" id="Environment_gcc4l"]
+background_energy_multiplier = 0.0
+ambient_light_source = 1
+ambient_light_energy = 0.0
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 0.01
+
+[node name="room" type="Node3D" unique_id=239636553]
+
+[node name="floor" type="MeshInstance3D" parent="." unique_id=394683839]
+mesh = SubResource("PlaneMesh_gcc4l")
+
+[node name="wall1" type="MeshInstance3D" parent="." unique_id=136376091]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -2.5, 0, 0)
+mesh = SubResource("PlaneMesh_gcc4l")
+
+[node name="wall2" type="MeshInstance3D" parent="." unique_id=284667033]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.5, 0, 0)
+mesh = SubResource("PlaneMesh_gcc4l")
+
+[node name="wall3" type="MeshInstance3D" parent="." unique_id=985032109]
+transform = Transform3D(1.9106855e-15, 4.3711385e-08, -0.99999994, 1, -4.3711385e-08, 0, -4.371139e-08, -0.99999994, -4.3711385e-08, 0, 0, 2.5)
+mesh = SubResource("PlaneMesh_gcc4l")
+
+[node name="wall4" type="MeshInstance3D" parent="." unique_id=846989243]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0, 0, -2.5)
+mesh = SubResource("PlaneMesh_gcc4l")
+
+[node name="roof" type="MeshInstance3D" parent="." unique_id=1431848380]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 2.5, 0)
+mesh = SubResource("PlaneMesh_gcc4l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1066303693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.243)
+mesh = SubResource("BoxMesh_gcc4l")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=902231563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.132)
+mesh = SubResource("BoxMesh_gcc4l")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1430483133]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.1827213, -1.2627128)
+light_color = Color(1, 0.8117647, 0.69803923, 1)
+light_energy = 7.139
+spot_range = 2.0
+spot_angle = 180.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=721611115]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.1380346, 1.1328493)
+light_color = Color(1, 0.8117647, 0.69803923, 1)
+light_energy = 10.0
+spot_range = 2.0
+spot_angle = 180.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2053853379]
+environment = SubResource("Environment_gcc4l")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1562277118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3125368, 1.1367186)
+visible = false
+light_color = Color(1, 0.8117647, 0.69803923, 1)
+light_energy = 3.0
+omni_range = 1.917
+omni_attenuation = 3.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1253450183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1895834, -1.199191)
+visible = false
+light_color = Color(1, 0.8117647, 0.69803923, 1)
+light_energy = 3.0
+omni_range = 1.0
+omni_attenuation = 3.296

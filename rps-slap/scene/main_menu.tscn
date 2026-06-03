@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dlakoofyqrpwl"]
+
+[ext_resource type="Script" uid="uid://clhlrfb78hu3y" path="res://scripts/main_menu.gd" id="1_3er1b"]
+
+[sub_resource type="FontFile" id="FontFile_m4svf"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3er1b"]
+font = SubResource("FontFile_m4svf")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4svf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="Control" unique_id=914805980]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3er1b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=126206345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4456268, 0.4589544, 0.5587334, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1628176145]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -190.5
+offset_right = 337.0
+offset_bottom = 190.5
+grow_vertical = 2
+text = "RPSs"
+label_settings = SubResource("LabelSettings_3er1b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1127482275]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -330.0
+offset_right = 251.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m4svf")
+
+[node name="Play" type="Button" parent="Panel" unique_id=167180102]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 67.0
+offset_right = 191.0
+offset_bottom = 107.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="Panel" unique_id=1624364499]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 132.0
+offset_right = 191.0
+offset_bottom = 172.0
+text = "Quit"
+
+[connection signal="pressed" from="Panel/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]

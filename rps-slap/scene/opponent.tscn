@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cmb7aghv0x4xl"]
+
+[ext_resource type="Script" uid="uid://dinnci4e0r4tp" path="res://scripts/opponent.gd" id="1_c5rdy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_c5rdy"]
+
+[node name="opponent" type="Node3D" unique_id=908181378]
+script = ExtResource("1_c5rdy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=271525892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_c5rdy")
