@@ -24,12 +24,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 script = ExtResource("1_33cqm")
 
 [node name="opponent" parent="." unique_id=908181378 instance=ExtResource("2_xwcet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0999547, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5925592, 0, 0)
 
 [node name="room" parent="." unique_id=239636553 instance=ExtResource("2_33cqm")]
 
 [node name="player" parent="." unique_id=1684425129 instance=ExtResource("1_dbls1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0159067, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.6047838, 0, 0)
 
 [node name="hud" type="Control" parent="." unique_id=579823506]
 layout_mode = 3

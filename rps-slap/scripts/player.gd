@@ -1,7 +1,14 @@
 extends Node3D
 
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var game: Node3D = get_node("..")
-@onready var opponent: Node3D = $opponent # Reference to the opponent node in the scene tree
+
+@onready var rock_obg = $mannequin/Skeleton3D/BoneAttachment3D2/rock
+@onready var paper_obg = $mannequin/Skeleton3D/BoneAttachment3D2/paper
+@onready var scissor_obg = $mannequin/Skeleton3D/BoneAttachment3D2/scissor
+
+
+#@onready var opponent: Node3D = $opponent # Reference to the opponent node in the scene tree
 
 enum choice { ROCK, PAPER, SCISSOR}
 
@@ -51,5 +58,27 @@ func play():
 	pass
 
 func slap():
-	pass
-	#anim_player.play("slap")
+	anim_player.play("anim/anim_right_hook")
+func hit():
+	anim_player.play("anim/anim_kick_to_the_groin")
+
+func mouse_capture():
+	mouse_rotation_enabled = true
+	rotating = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func show_rock():
+	rock_obg.visible = true
+func show_paper():
+	paper_obg.visible = true
+func show_scissor():
+	scissor_obg.visible = true
+
+func hide_obj():
+	rock_obg.visible = false
+	paper_obg.visible = false
+	scissor_obg.visible = false
+#func hide_paper():
+	#
+#func hide_scissor():
+	
