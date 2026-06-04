@@ -52,3 +52,4 @@ func play():
 
 func slap():
 	pass
+	#anim_player.play("slap")

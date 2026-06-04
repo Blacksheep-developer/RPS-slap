@@ -11,3 +11,7 @@ func pick_random() -> choice:
 	current_choice = choice.values().pick_random()
 	print(choice.keys()[current_choice])
 	return current_choice
+
+func slap():
+	pass
+	#anim_player.play("slap")

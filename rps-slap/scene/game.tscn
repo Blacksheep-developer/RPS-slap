@@ -6,7 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://cmb7aghv0x4xl" path="res://scene/opponent.tscn" id="2_xwcet"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xwcet"]
-font_size = 70
+font_size = 170
+
+[sub_resource type="LabelSettings" id="LabelSettings_p1ry8"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_xlg7c"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_qpk70"]
+font_size = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwcet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -45,6 +54,54 @@ text = "pReSs        ___SPACE___"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="rock_label" type="Label" parent="hud" unique_id=1055632904]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "R"
+label_settings = SubResource("LabelSettings_xwcet")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="paper_label" type="Label" parent="hud" unique_id=23906338]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "P"
+label_settings = SubResource("LabelSettings_xwcet")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scissor_label" type="Label" parent="hud" unique_id=994984512]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "S"
+label_settings = SubResource("LabelSettings_xwcet")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="draw_label" type="Label" parent="hud" unique_id=1227527171]
 visible = false
 layout_mode = 1
@@ -57,7 +114,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "DRAW"
-label_settings = SubResource("LabelSettings_xwcet")
+label_settings = SubResource("LabelSettings_p1ry8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -73,7 +130,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "WIN"
-label_settings = SubResource("LabelSettings_xwcet")
+label_settings = SubResource("LabelSettings_xlg7c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -89,7 +146,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "LOOSE"
-label_settings = SubResource("LabelSettings_xwcet")
+label_settings = SubResource("LabelSettings_qpk70")
 horizontal_alignment = 1
 vertical_alignment = 1
 
