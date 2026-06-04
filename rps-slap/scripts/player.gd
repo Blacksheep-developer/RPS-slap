@@ -1,7 +1,9 @@
 extends Node3D
 
+@onready var game: Node3D = get_node("..")
+@onready var opponent: Node3D = $opponent # Reference to the opponent node in the scene tree
 
-@onready var opponent = get_node("../opponent") # Reference to the opponent node in the scene tree
+enum choice { ROCK, PAPER, SCISSOR}
 
 var target_y: float = 89.5 # Target Y rotation angle for lerping towards the opponent
 
@@ -13,6 +15,7 @@ var mouse_sensitivity: float = 0.002 # Sensitivity of mouse-based horizontal rot
 
 var mouse_rotation_enabled: bool = true # Flag to disable mouse rotation after pressing space
 
+###########################################################################
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Capture the mouse so it's hidden and locked to the window
 
@@ -24,6 +27,9 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	# When the "start" action (spacebar) is pressed
 	if Input.is_action_just_pressed("start"):
+		if game.is_playing:
+			return
+		game.play()               ### 
 		# Show the mouse cursor again
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		mouse_rotation_enabled = false # Disable further mouse-based rotation
@@ -38,3 +44,11 @@ func _process(delta: float) -> void:
 		if abs(rotation.y - target_y) < 0.01:
 			rotation.y = target_y
 			rotating = false
+
+###########################################################################
+
+func play():
+	pass
+
+func slap():
+	pass

@@ -15,10 +15,6 @@ run/main_scene="uid://dlakoofyqrpwl"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Gamemanager="*uid://b1hutko80s1v8"
-
 [display]
 
 window/size/viewport_width=1920
