@@ -24,10 +24,19 @@ var opponent_choice
 @onready var paper_label = $hud/paper_label
 @onready var scissor_label = $hud/scissor_label
 
+@onready var match_win = $hud/match_win
+@onready var match_loose = $hud/match_loose
+
+@onready var hearts: Array[Node] = [
+	$hud/HBoxContainer/heart1,
+	$hud/HBoxContainer/heart2,
+	$hud/HBoxContainer/heart3
+]
+
 ###############################################################################
 func _ready() -> void:
 	waiting()
-	
+	update_hearts(player.max_health)
 	draw_label.visible = false
 	win_label.visible = false
 	win_label.visible = false
@@ -42,10 +51,6 @@ func play():
 	rock_button.visible = true
 	paper_button.visible = true
 	scissor_button.visible = true
-	
-	#await get_tree().create_timer(7).timeout
-	#is_playing = false
-	
 
 func waiting():
 	is_playing = false
@@ -84,10 +89,14 @@ func win():
 	await get_tree().create_timer(0.2).timeout
 	opponent.hit()
 	await get_tree().create_timer(3.1).timeout
+	opponent.minus_health()
+	if opponent.current_health == 0:
+		return
 	player.hide_obj()
 	opponent.hide_obj()
-	waiting()
 	
+	waiting()
+
 func loose():
 	loose_label.visible = true
 	await get_tree().create_timer(2).timeout
@@ -96,9 +105,18 @@ func loose():
 	await get_tree().create_timer(0.2).timeout
 	player.hit()
 	await get_tree().create_timer(3.1).timeout
+	player.minus_health()
+	update_hearts(player.current_health)
+	if player.current_health == 0:
+		return
 	player.hide_obj()
 	opponent.hide_obj()
+	
 	waiting()
+	
+func update_hearts(health: int):                                                                                 
+	for i in range(3):                                                                               
+		hearts[i].visible = i < health
 
 func _on_rock_pressed() -> void:
 	#player_is_rock = true
@@ -164,3 +182,6 @@ func countdown():
 	scissor_label.visible = true
 	await get_tree().create_timer(1).timeout
 	scissor_label.visible = false
+
+func back_to_menu():
+	get_tree().change_scene_to_file("res://scene/main_menu.tscn")

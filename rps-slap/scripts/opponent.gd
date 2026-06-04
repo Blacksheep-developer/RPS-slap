@@ -7,9 +7,16 @@ var current_choice: choice
 @onready var paper_obg = $mannequin/Skeleton3D/BoneAttachment3D/paper
 @onready var scissor_obg = $mannequin/Skeleton3D/BoneAttachment3D/scissor
 
+@onready var gamemanager = owner
+
+var max_health = 3
+var current_health
+
 ###############################################################################
 func _ready() -> void:
 	randomize()
+	current_health = max_health
+#############################################################################
 
 func pick_random() -> choice:
 	current_choice = choice.values().pick_random()
@@ -21,6 +28,11 @@ func slap():
 
 func hit():
 	anim_player.play("anim/anim_kick_to_the_groin")
+
+func minus_health():
+	current_health -= 1
+	if current_health <= 0:
+		gamemanager.back_to_menu()
 
 func show_rock():
 	rock_obg.visible = true
