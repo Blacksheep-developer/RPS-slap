@@ -708,7 +708,7 @@ transform = Transform3D(0.9918004, -0.071078345, 0.10621688, 0.101316065, 0.9438
 visible = false
 
 [node name="rock" parent="mannequin/Skeleton3D/BoneAttachment3D2" unique_id=41712591 instance=ExtResource("5_dk1vr")]
-transform = Transform3D(0.6270112, 0.026841551, -0.7785493, -0.27285093, 0.94366705, -0.18720855, 0.7296653, 0.3298093, 0.5990126, 0.014350921, 0.12571168, 0.04561019)
+transform = Transform3D(1.2627726, 0.042009413, -0.8084815, -0.76017725, 0.5767663, -1.1573561, 0.27845678, 1.3840436, 0.5068394, 0.00095528364, 0.104441166, 0.029207826)
 visible = false
 
 [node name="scissor" parent="mannequin/Skeleton3D/BoneAttachment3D2" unique_id=1142500231 instance=ExtResource("6_34jf3")]
