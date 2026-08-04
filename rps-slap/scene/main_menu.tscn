@@ -1,35 +1,23 @@
 [gd_scene format=3 uid="uid://dlakoofyqrpwl"]
 
 [ext_resource type="Script" uid="uid://clhlrfb78hu3y" path="res://scripts/main_menu.gd" id="1_3er1b"]
+[ext_resource type="Texture2D" uid="uid://dcjhmwffqburh" path="res://assets/logo.png" id="2_14wem"]
+[ext_resource type="Texture2D" uid="uid://b60hymoah1ikt" path="res://assets/rock_icon.png" id="3_14wem"]
+[ext_resource type="Texture2D" uid="uid://dbj171ebux2f5" path="res://assets/paper_icon.png" id="4_2atga"]
+[ext_resource type="Texture2D" uid="uid://c2kn4ghupu85c" path="res://assets/scissor_icon.png" id="5_by01r"]
+[ext_resource type="Texture2D" uid="uid://ckyylu4y1ned1" path="res://assets/slap_icon.png" id="6_dclss"]
 
-[sub_resource type="FontFile" id="FontFile_m4svf"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/100/0/ascent = 0.0
-cache/0/100/0/descent = 0.0
-cache/0/100/0/underline_position = 0.0
-cache/0/100/0/underline_thickness = 0.0
-cache/0/100/0/scale = 1.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1toly"]
+bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_3er1b"]
-font = SubResource("FontFile_m4svf")
-font_size = 100
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpk70"]
+bg_color = Color(0.46618086, 0.4661808, 0.4661808, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4svf"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlg7c"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1ry8"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" unique_id=914805980]
 layout_mode = 3
@@ -40,54 +28,126 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3er1b")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=126206345]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=21359567]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.4456268, 0.4589544, 0.5587334, 1)
+color = Color(0.2159017, 0.21590173, 0.2159017, 1)
 
-[node name="Label" type="Label" parent="." unique_id=1628176145]
+[node name="Control" type="Control" parent="." unique_id=1349098156]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -190.5
-offset_right = 337.0
-offset_bottom = 190.5
+offset_top = -389.0
+offset_right = 675.0
+offset_bottom = 389.0
 grow_vertical = 2
-text = "RPSs"
-label_settings = SubResource("LabelSettings_3er1b")
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="." unique_id=1127482275]
+[node name="Label" type="TextureRect" parent="Control" unique_id=1022234901]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -330.0
-offset_right = 251.0
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_m4svf")
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 116.0
+offset_top = -350.0
+offset_right = 563.0
+offset_bottom = 31.0
+grow_vertical = 2
+texture = ExtResource("2_14wem")
 
-[node name="Play" type="Button" parent="Panel" unique_id=167180102]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 67.0
-offset_right = 191.0
-offset_bottom = 107.0
+[node name="Panel" type="VBoxContainer" parent="Control" unique_id=958825641]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.5
+offset_top = -53.0
+offset_right = 227.5
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Play" type="Button" parent="Control/Panel" unique_id=167180102]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_1toly")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qpk70")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlg7c")
 text = "Play"
 
-[node name="Quit" type="Button" parent="Panel" unique_id=1624364499]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 132.0
-offset_right = 191.0
-offset_bottom = 172.0
+[node name="Quit" type="Button" parent="Control/Panel" unique_id=1624364499]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_p1ry8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qpk70")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlg7c")
 text = "Quit"
 
-[connection signal="pressed" from="Panel/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
+[node name="HBoxContainer" type="Control" parent="." unique_id=454822762]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -35.0
+offset_right = 300.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1584686751]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 11.0
+offset_right = 119.0
+offset_bottom = 71.96774
+texture = ExtResource("3_14wem")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=1853186961]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 11.0
+offset_right = 236.0
+offset_bottom = 77.375
+texture = ExtResource("4_2atga")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=1241573448]
+layout_mode = 0
+offset_left = 297.0
+offset_top = 4.9999847
+offset_right = 343.0
+offset_bottom = 77.53845
+texture = ExtResource("5_by01r")
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer" unique_id=1256354053]
+layout_mode = 0
+offset_left = 421.0
+offset_top = -4.0
+offset_right = 574.0
+offset_bottom = 78.0
+texture = ExtResource("6_dclss")
+stretch_mode = 4
+
+[connection signal="pressed" from="Control/Panel/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/Panel/Quit" to="." method="_on_quit_pressed"]

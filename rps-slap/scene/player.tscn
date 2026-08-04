@@ -1,25 +1,23 @@
 [gd_scene format=4 uid="uid://b7bqodoqn6f6s"]
 
 [ext_resource type="Script" uid="uid://dlqbpj1qjt678" path="res://scripts/player.gd" id="1_xo3ru"]
-[ext_resource type="Texture2D" uid="uid://dmr0ruy6uxax0" path="res://assets/mannequin/mannequin_0.png" id="2_g2vtq"]
 [ext_resource type="Texture2D" uid="uid://t481dph2dxuw" path="res://assets/mannequin/mannequin_3.png" id="3_2fvbb"]
 [ext_resource type="PackedScene" uid="uid://rfopfdwyor1c" path="res://assets/cc0_-_toilet_paper_roll/scene.gltf" id="4_ihjo1"]
 [ext_resource type="Animation" uid="uid://cn4o018mgmu1j" path="res://animation/anim_breathing_idle.res" id="4_ml7e8"]
 [ext_resource type="PackedScene" uid="uid://81nsjrqooj2h" path="res://assets/moon_rock_03_1k/moon_rock_03_1k.gltf" id="5_dk1vr"]
-[ext_resource type="Animation" uid="uid://bvfrlgnkl2r7w" path="res://animation/anim_kick_to_the_groin.res" id="5_ihjo1"]
+[ext_resource type="Animation" uid="uid://hotoa704jkg8" path="res://animation/anim_kick_to_the_groin.res" id="5_ihjo1"]
 [ext_resource type="PackedScene" uid="uid://vl710yhv68uj" path="res://assets/rusty_scissors/scene.gltf" id="6_34jf3"]
-[ext_resource type="Animation" uid="uid://d3fn5v8ovu3ga" path="res://animation/anim_right_hook.res" id="6_dk1vr"]
-[ext_resource type="Animation" uid="uid://jxgf7ewiuaek" path="res://animation/anim_standing_melee_punch.res" id="7_34jf3"]
-[ext_resource type="Animation" uid="uid://drau6lc7iuu0m" path="res://animation/anim_talking.res" id="8_2fvbb"]
-[ext_resource type="Animation" uid="uid://dpxbuteelf5eo" path="res://animation/anim_uppercut.res" id="8_u7b46"]
+[ext_resource type="Animation" uid="uid://dptf8dnob4u6" path="res://animation/anim_right_hook.res" id="6_dk1vr"]
+[ext_resource type="Animation" uid="uid://yawyg6s4e038" path="res://animation/anim_standing_melee_punch.res" id="7_34jf3"]
+[ext_resource type="Animation" uid="uid://dbsvfmm00kbgu" path="res://animation/anim_talking.res" id="8_2fvbb"]
+[ext_resource type="Animation" uid="uid://bg72luqvwh30e" path="res://animation/anim_uppercut.res" id="8_u7b46"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4qnqm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r55mn"]
 resource_name = "Ch36_Body"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 0.8)
-albedo_texture = ExtResource("2_g2vtq")
+albedo_color = Color(0.45840502, 0.45840508, 0.45840502, 1)
 emission_enabled = true
 normal_enabled = true
 normal_scale = 0.0

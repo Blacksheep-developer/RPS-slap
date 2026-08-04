@@ -10,15 +10,18 @@ config_version=5
 
 [application]
 
-config/name="RPS-slap"
+config/name="project-slap"
 run/main_scene="uid://dlakoofyqrpwl"
-config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
+window/size/resizable=false
+window/vsync/vsync_mode=0
 
 [input]
 
