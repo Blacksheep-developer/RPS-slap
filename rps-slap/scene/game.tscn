@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dujvfir21ssg7" path="res://assets/suit_hearts.png" id="5_p1ry8"]
 [ext_resource type="Texture2D" uid="uid://dbj171ebux2f5" path="res://assets/paper_icon.png" id="6_17rxn"]
 [ext_resource type="Texture2D" uid="uid://c2kn4ghupu85c" path="res://assets/scissor_icon.png" id="7_yq8tf"]
+[ext_resource type="AudioStream" uid="uid://bndof2o6w4sy2" path="res://Audio/Music/Loyalty_Freak_Music_-_02_-_One_Cool_Minute(chosic.com).mp3" id="9_17rxn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ll5lq"]
 font_size = 70
@@ -152,6 +153,10 @@ offset_right = 810.0
 offset_bottom = 286.0
 icon = ExtResource("7_yq8tf")
 icon_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2124164623]
+stream = ExtResource("9_17rxn")
+autoplay = true
 
 [connection signal="pressed" from="hud/Panel/rock" to="." method="_on_rock_pressed"]
 [connection signal="pressed" from="hud/Panel/paper" to="." method="_on_paper_pressed"]
