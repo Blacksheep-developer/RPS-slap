@@ -23,7 +23,9 @@ var max_health = 3
 var current_health
 @onready var gamemanager = owner
 
-###########################################################################
+
+
+# =================================================================================================
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	current_health = max_health
@@ -46,7 +48,9 @@ func _process(delta: float) -> void:
 		if abs(rotation.y - target_y) < 0.01:
 			rotation.y = target_y
 			rotating = false
-###########################################################################
+# =================================================================================================
+
+
 
 func slap():
 	anim_player.play("anim/anim_right_hook")
