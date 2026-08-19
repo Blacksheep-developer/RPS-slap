@@ -36,16 +36,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("start"):
 		if game.is_playing:
 			return
-		game.play()               ### 
-
+		game.play()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		mouse_rotation_enabled = false
-
 		rotating = true
 	
 	if rotating:
 		rotation.y = lerp_angle(rotation.y, target_y, rotation_speed * delta)
-
 		if abs(rotation.y - target_y) < 0.01:
 			rotation.y = target_y
 			rotating = false
@@ -53,13 +50,14 @@ func _process(delta: float) -> void:
 
 func slap():
 	anim_player.play("anim/anim_right_hook")
+
 func hit():
 	anim_player.play("anim/anim_kick_to_the_groin")
 
 func minus_health():
 	current_health -= 1
-	if current_health <= 0:
-		gamemanager.back_to_menu()
+	#if current_health <= 0:
+		#gamemanager.back_to_menu()
 	
 func mouse_capture():
 	mouse_rotation_enabled = true
