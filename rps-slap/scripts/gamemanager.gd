@@ -1,16 +1,10 @@
 extends Node3D
 
-# ----------- Bool -------------
-var is_playing = false
-
-#var player_is_rock
-#var player_is_paper
-#var player_is_scissor
 var player_choice
 var opponent_choice
-#var opponent_is_rock
-#var opponent_is_paper
-#var opponent_is_scissor
+
+# ----------- Bool -------------
+var is_playing = false
 
 # ----------- Reference -----------
 @onready var player = $player
@@ -20,19 +14,6 @@ var opponent_choice
 @onready var scissor_button = $hud/Panel/scissor
 @onready var label: Label = $hud/Label # ------------ LABELS
 @onready var label_result: Label = $hud/LabelResult
-@onready var result_panel: Panel = $hud/ResultPanel
-
-#@onready var draw_label = $hud/draw_label
-#@onready var win_label = $hud/win_label
-#@onready var loose_label = $hud/loose_label
-#@onready var rock_label = $hud/rock_label
-#@onready var paper_label = $hud/paper_label
-#@onready var scissor_label = $hud/scissor_label
-
-#@onready var match_win_label = $hud/match_win
-#@onready var match_loose_label = $hud/match_loose
-
-
 
 @onready var hearts: Array[Node] = [
 	$hud/HBoxContainer/heart1,
@@ -46,10 +27,6 @@ var opponent_choice
 func _ready() -> void:
 	waiting()
 	update_hearts(player.max_health)
-	#draw_label.visible = false
-	#win_label.visible = false
-	#loose_label.visible = false
-	
 # ===============================================================================
 
 
@@ -65,7 +42,7 @@ func play():
 	rock_button.visible = true
 	paper_button.visible = true
 	scissor_button.visible = true
-	result_panel.visible = false
+	#result_panel.visible = false
 
 func waiting():
 	is_playing = false
@@ -118,10 +95,9 @@ func win():
 		opponent.hide_obj()
 		waiting()
 	else:
-		label_result.modulate = Color.GREEN
-		label_result.text = "Congratulation"
-		await get_tree().create_timer(5).timeout
-		back_to_menu()
+		Autoloaded.is_win = true
+		Autoloaded.current_money += Autoloaded.invested_money * 2 # ----------Money
+		results()
 
 func loose():
 	#loose_label.visible = true
@@ -141,12 +117,10 @@ func loose():
 		opponent.hide_obj()
 		waiting()
 	else:
-		label_result.modulate = Color.RED
-		label_result.text = "GameOver"
-		await get_tree().create_timer(5).timeout
-		back_to_menu()
-	
-func update_hearts(health: int):                                                                                 
+		Autoloaded.is_win = false
+		results()
+
+func update_hearts(health: int):
 	for i in range(3):                                                                               
 		hearts[i].visible = i < health
 
@@ -220,7 +194,8 @@ func countdown():
 	label.text = ""
 
 func results():
-	label.text = "str"
+	get_tree().change_scene_to_file("res://scene/results.tscn")
+	#label.text = "str"
 
 func back_to_menu():
 	get_tree().change_scene_to_file("res://scene/main_menu.tscn")

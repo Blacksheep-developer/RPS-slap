@@ -1,12 +1,32 @@
 extends Control
 
-#############################################################################
+@onready var spinbox_input: SpinBox = $Control/Panel/SpinBox
+@onready var money_label: Label = $MoneyLabel
+var is_pressed: bool = false
+
+
+
+# ==============================================================================
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-#############################################################################
+	
+	update_money()
+# ==============================================================================
+
+
 
 func _on_play_pressed() -> void:
+	if is_pressed:
+		return
+	is_pressed = true
+	Autoloaded.invested_money = int(spinbox_input.value)
+	Autoloaded.current_money -= Autoloaded.invested_money
+	update_money()
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://scene/game.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func update_money():
+	money_label.text = str(Autoloaded.current_money)

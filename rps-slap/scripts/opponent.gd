@@ -12,11 +12,15 @@ var current_choice: choice
 var max_health = 3
 var current_health
 
-###############################################################################
+
+
+# ==============================================================================
 func _ready() -> void:
 	randomize()
 	current_health = max_health
-#############################################################################
+# ==============================================================================
+
+
 
 func pick_random() -> choice:
 	current_choice = choice.values().pick_random()
@@ -31,8 +35,8 @@ func hit():
 
 func minus_health():
 	current_health -= 1
-	if current_health <= 0:
-		gamemanager.back_to_menu()
+	#if current_health <= 0:
+		#gamemanager.back_to_menu()
 
 func show_rock():
 	rock_obg.visible = true

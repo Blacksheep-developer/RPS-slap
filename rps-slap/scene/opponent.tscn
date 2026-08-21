@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cmb7aghv0x4xl"]
 
 [ext_resource type="Script" uid="uid://dinnci4e0r4tp" path="res://scripts/opponent.gd" id="1_c5rdy"]
-[ext_resource type="Animation" uid="uid://cn4o018mgmu1j" path="res://animation/anim_breathing_idle.res" id="2_vuc7o"]
+[ext_resource type="Animation" uid="uid://c622uejyuckmt" path="res://animation/anim_breathing_idle.res" id="2_vuc7o"]
 [ext_resource type="Animation" uid="uid://hotoa704jkg8" path="res://animation/anim_kick_to_the_groin.res" id="3_xh8m7"]
 [ext_resource type="Animation" uid="uid://dptf8dnob4u6" path="res://animation/anim_right_hook.res" id="4_trb4g"]
 [ext_resource type="Animation" uid="uid://yawyg6s4e038" path="res://animation/anim_standing_melee_punch.res" id="5_hkw1j"]

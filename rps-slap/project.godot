@@ -15,6 +15,10 @@ run/main_scene="uid://dlakoofyqrpwl"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 
+[autoload]
+
+Autoloaded="*uid://cjj1f8c6m5mxy"
+
 [display]
 
 window/size/viewport_width=1920

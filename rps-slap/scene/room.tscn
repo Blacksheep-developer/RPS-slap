@@ -7,7 +7,7 @@ material = SubResource("StandardMaterial3D_gcc4l")
 size = Vector2(5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gcc4l"]
-size = Vector3(0.5, 1, 0.5)
+size = Vector3(0.5, 0.7602539, 0.5)
 
 [sub_resource type="Environment" id="Environment_gcc4l"]
 background_energy_multiplier = 0.0
@@ -43,7 +43,7 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.00
 mesh = SubResource("PlaneMesh_gcc4l")
 
 [node name="TablePlayer" type="MeshInstance3D" parent="." unique_id=1066303693]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2469448, 0.5, 0.018811464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2469448, 0.38012695, 0.018811464)
 mesh = SubResource("BoxMesh_gcc4l")
 
 [node name="TableOpponent" type="MeshInstance3D" parent="." unique_id=902231563]

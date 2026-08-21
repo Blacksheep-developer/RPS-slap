@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://jyyaiyren0ev"]
+
+[ext_resource type="Script" uid="uid://b3ff1ftpluyow" path="res://scripts/results.gd" id="1_ppxcy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ppxcy"]
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_4tvy5"]
+font_size = 30
+
+[node name="Results" type="Control" unique_id=534913589]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ppxcy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=754379349]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.017732391, 0.017732391, 0.01773239, 1)
+
+[node name="Title" type="Label" parent="." unique_id=2045607795]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -403.0
+offset_right = 403.0
+offset_bottom = 422.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+label_settings = SubResource("LabelSettings_ppxcy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Results" type="Label" parent="." unique_id=1638391751]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -91.0
+offset_right = 241.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+label_settings = SubResource("LabelSettings_4tvy5")
+horizontal_alignment = 1
+vertical_alignment = 1

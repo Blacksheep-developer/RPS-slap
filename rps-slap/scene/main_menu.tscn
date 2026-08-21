@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://c2kn4ghupu85c" path="res://assets/scissor_icon.png" id="5_by01r"]
 [ext_resource type="Texture2D" uid="uid://ckyylu4y1ned1" path="res://assets/slap_icon.png" id="6_dclss"]
 
+[sub_resource type="SystemFont" id="SystemFont_qtd7a"]
+
+[sub_resource type="Theme" id="Theme_niw12"]
+default_font = SubResource("SystemFont_qtd7a")
+default_font_size = 50
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1toly"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -18,6 +24,12 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1ry8"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1pbdy"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_14wem"]
+font_size = 50
 
 [node name="Control" type="Control" unique_id=914805980]
 layout_mode = 3
@@ -66,14 +78,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -224.5
-offset_top = -53.0
-offset_right = 227.5
-offset_bottom = 157.0
+offset_left = -225.5
+offset_top = -79.0
+offset_right = 226.5
+offset_bottom = 297.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="Control/Panel" unique_id=1384044491]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme = SubResource("Theme_niw12")
+min_value = 100.0
+max_value = 1000000.0
+value = 100.0
+alignment = 1
+custom_arrow_step = 100.0
+custom_arrow_round = true
+select_all_on_focus = true
 
 [node name="Play" type="Button" parent="Control/Panel" unique_id=167180102]
 custom_minimum_size = Vector2(400, 80)
@@ -101,16 +125,15 @@ text = "Quit"
 
 [node name="HBoxContainer" type="Control" parent="." unique_id=454822762]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -304.0
-offset_top = -35.0
-offset_right = 300.0
-offset_bottom = 47.0
-grow_horizontal = 2
+offset_left = -680.0
+offset_top = -41.0
+offset_bottom = 41.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1584686751]
@@ -148,6 +171,36 @@ offset_right = 574.0
 offset_bottom = 78.0
 texture = ExtResource("6_dclss")
 stretch_mode = 4
+
+[node name="Label" type="Label" parent="." unique_id=1583530928]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -17.5
+offset_right = 231.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "<          How much you willing to loose this time ?"
+label_settings = SubResource("LabelSettings_1pbdy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=71557081]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -582.0
+offset_bottom = 326.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_14wem")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Control/Panel/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/Panel/Quit" to="." method="_on_quit_pressed"]
