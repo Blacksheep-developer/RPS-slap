@@ -21,6 +21,8 @@ func win():
 	results.text = "You won " + str(Autoloaded.invested_money * 2) + " €"
 	await get_tree().create_timer(5).timeout
 	Autoloaded.invested_money = 0
+	if not is_inside_tree():
+		return
 	get_tree().change_scene_to_file("res://scene/main_menu.tscn")
 	
 func loose():
@@ -29,4 +31,6 @@ func loose():
 	results.text = "You lost " + str(Autoloaded.invested_money) + " €"
 	await get_tree().create_timer(5).timeout
 	Autoloaded.invested_money = 0
+	if not is_inside_tree():
+		return
 	get_tree().change_scene_to_file("res://scene/main_menu.tscn")

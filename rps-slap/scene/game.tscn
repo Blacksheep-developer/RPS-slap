@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cmb7aghv0x4xl" path="res://scene/opponent.tscn" id="2_xwcet"]
 [ext_resource type="Texture2D" uid="uid://b60hymoah1ikt" path="res://assets/rock_icon.png" id="5_ll5lq"]
 [ext_resource type="Texture2D" uid="uid://dujvfir21ssg7" path="res://assets/suit_hearts.png" id="5_p1ry8"]
+[ext_resource type="Texture2D" uid="uid://cbtvoug34qx2p" path="res://assets/left_heart_holder.png" id="5_ym5sv"]
 [ext_resource type="Texture2D" uid="uid://dbj171ebux2f5" path="res://assets/paper_icon.png" id="6_17rxn"]
+[ext_resource type="Texture2D" uid="uid://tp6ave2c8018" path="res://assets/right_heart_holder.png" id="6_sng2h"]
 [ext_resource type="Texture2D" uid="uid://c2kn4ghupu85c" path="res://assets/scissor_icon.png" id="7_yq8tf"]
 [ext_resource type="AudioStream" uid="uid://bndof2o6w4sy2" path="res://Audio/Music/Loyalty_Freak_Music_-_02_-_One_Cool_Minute(chosic.com).mp3" id="9_17rxn"]
 
@@ -38,25 +40,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="hud" unique_id=809746830]
+[node name="LeftHeartHolder" type="TextureRect" parent="hud" unique_id=2038653889]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -100.25
-offset_right = 100.25
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_ym5sv")
+
+[node name="RightHeartHolder" type="TextureRect" parent="hud" unique_id=131185362]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture = ExtResource("6_sng2h")
+
+[node name="PlayerHearts" type="HBoxContainer" parent="hud" unique_id=809746830]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
 offset_bottom = 64.0
-grow_horizontal = 2
+grow_horizontal = 0
+theme_override_constants/separation = 10
 
-[node name="heart1" type="TextureRect" parent="hud/HBoxContainer" unique_id=98237922]
+[node name="heart1" type="TextureRect" parent="hud/PlayerHearts" unique_id=98237922]
 layout_mode = 2
 texture = ExtResource("5_p1ry8")
 
-[node name="heart2" type="TextureRect" parent="hud/HBoxContainer" unique_id=1023108078]
+[node name="heart2" type="TextureRect" parent="hud/PlayerHearts" unique_id=1023108078]
 layout_mode = 2
 texture = ExtResource("5_p1ry8")
 
-[node name="heart3" type="TextureRect" parent="hud/HBoxContainer" unique_id=288384167]
+[node name="heart3" type="TextureRect" parent="hud/PlayerHearts" unique_id=288384167]
+layout_mode = 2
+texture = ExtResource("5_p1ry8")
+
+[node name="OpponentHearts" type="HBoxContainer" parent="hud" unique_id=98900881]
+layout_mode = 1
+offset_right = 265.0
+offset_bottom = 64.0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="heart1" type="TextureRect" parent="hud/OpponentHearts" unique_id=1196395486]
+layout_mode = 2
+texture = ExtResource("5_p1ry8")
+
+[node name="heart2" type="TextureRect" parent="hud/OpponentHearts" unique_id=519993916]
+layout_mode = 2
+texture = ExtResource("5_p1ry8")
+
+[node name="heart3" type="TextureRect" parent="hud/OpponentHearts" unique_id=1230090338]
 layout_mode = 2
 texture = ExtResource("5_p1ry8")
 

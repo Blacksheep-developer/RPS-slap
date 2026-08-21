@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbj171ebux2f5" path="res://assets/paper_icon.png" id="4_2atga"]
 [ext_resource type="Texture2D" uid="uid://c2kn4ghupu85c" path="res://assets/scissor_icon.png" id="5_by01r"]
 [ext_resource type="Texture2D" uid="uid://ckyylu4y1ned1" path="res://assets/slap_icon.png" id="6_dclss"]
+[ext_resource type="AudioStream" uid="uid://bndof2o6w4sy2" path="res://Audio/Music/Loyalty_Freak_Music_-_02_-_One_Cool_Minute(chosic.com).mp3" id="7_2atga"]
 
 [sub_resource type="SystemFont" id="SystemFont_qtd7a"]
 
@@ -201,6 +202,10 @@ grow_horizontal = 0
 label_settings = SubResource("LabelSettings_14wem")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1878947314]
+stream = ExtResource("7_2atga")
+autoplay = true
 
 [connection signal="pressed" from="Control/Panel/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/Panel/Quit" to="." method="_on_quit_pressed"]

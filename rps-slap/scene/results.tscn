@@ -6,7 +6,7 @@
 font_size = 70
 
 [sub_resource type="LabelSettings" id="LabelSettings_4tvy5"]
-font_size = 30
+font_size = 50
 
 [node name="Results" type="Control" unique_id=534913589]
 layout_mode = 3
@@ -38,7 +38,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 label_settings = SubResource("LabelSettings_ppxcy")
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 
 [node name="Results" type="Label" parent="." unique_id=1638391751]
 layout_mode = 1

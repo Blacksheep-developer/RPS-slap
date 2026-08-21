@@ -1,26 +1,24 @@
 extends Node3D
 
+# --------------- References ---------------
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var game: Node3D = get_node("..")
 
 @onready var rock_obg = $mannequin/Skeleton3D/BoneAttachment3D2/rock
 @onready var paper_obg = $mannequin/Skeleton3D/BoneAttachment3D2/paper
 @onready var scissor_obg = $mannequin/Skeleton3D/BoneAttachment3D2/scissor
-
 enum choice { ROCK, PAPER, SCISSOR}
-
-var target_y: float = 89.5
 
 var rotating: bool = false
 
+var target_y: float = 89.5
 var rotation_speed: float = 3
-
 var mouse_sensitivity: float = 0.002
-
 var mouse_rotation_enabled: bool = true
 
 var max_health = 3
 var current_health
+
 @onready var gamemanager = owner
 
 
@@ -33,7 +31,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and mouse_rotation_enabled:
 		rotate_y(-event.relative.x * mouse_sensitivity)
-	
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("start"):
 		if game.is_playing:
@@ -42,7 +40,7 @@ func _process(delta: float) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		mouse_rotation_enabled = false
 		rotating = true
-	
+
 	if rotating:
 		rotation.y = lerp_angle(rotation.y, target_y, rotation_speed * delta)
 		if abs(rotation.y - target_y) < 0.01:
@@ -60,9 +58,7 @@ func hit():
 
 func minus_health():
 	current_health -= 1
-	#if current_health <= 0:
-		#gamemanager.back_to_menu()
-	
+
 func mouse_capture():
 	mouse_rotation_enabled = true
 	rotating = false

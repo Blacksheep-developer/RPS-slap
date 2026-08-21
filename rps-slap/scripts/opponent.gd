@@ -35,8 +35,6 @@ func hit():
 
 func minus_health():
 	current_health -= 1
-	#if current_health <= 0:
-		#gamemanager.back_to_menu()
 
 func show_rock():
 	rock_obg.visible = true
