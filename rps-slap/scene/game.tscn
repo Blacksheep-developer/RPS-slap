@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://b7bqodoqn6f6s" path="res://scene/player.tscn" id="1_dbls1"]
 [ext_resource type="PackedScene" uid="uid://jotosmeuxfu0" path="res://scene/room.tscn" id="2_33cqm"]
 [ext_resource type="PackedScene" uid="uid://cmb7aghv0x4xl" path="res://scene/opponent.tscn" id="2_xwcet"]
-[ext_resource type="Texture2D" uid="uid://b60hymoah1ikt" path="res://assets/rock_icon.png" id="5_ll5lq"]
-[ext_resource type="Texture2D" uid="uid://dujvfir21ssg7" path="res://assets/suit_hearts.png" id="5_p1ry8"]
 [ext_resource type="Texture2D" uid="uid://cbtvoug34qx2p" path="res://assets/left_heart_holder.png" id="5_ym5sv"]
-[ext_resource type="Texture2D" uid="uid://dbj171ebux2f5" path="res://assets/paper_icon.png" id="6_17rxn"]
 [ext_resource type="Texture2D" uid="uid://tp6ave2c8018" path="res://assets/right_heart_holder.png" id="6_sng2h"]
-[ext_resource type="Texture2D" uid="uid://c2kn4ghupu85c" path="res://assets/scissor_icon.png" id="7_yq8tf"]
+[ext_resource type="Texture2D" uid="uid://p8ac3oi1l8i" path="res://New/2D/Heart.png" id="7_ym5sv"]
+[ext_resource type="Texture2D" uid="uid://bt3056jaibhpx" path="res://New/2D/Small/RockSmall.png" id="8_jrd6n"]
 [ext_resource type="AudioStream" uid="uid://bndof2o6w4sy2" path="res://Audio/Music/Loyalty_Freak_Music_-_02_-_One_Cool_Minute(chosic.com).mp3" id="9_17rxn"]
+[ext_resource type="Texture2D" uid="uid://daamuwm7nrtk3" path="res://New/2D/Small/PaperSmall.png" id="9_jhlss"]
+[ext_resource type="Texture2D" uid="uid://bw3lhal461tt2" path="res://New/2D/Small/ScissorSmall.png" id="10_jrd6n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ll5lq"]
 font_size = 70
@@ -51,8 +51,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -376.0
+offset_right = -2.0
+offset_bottom = 100.0
 grow_horizontal = 0
 texture = ExtResource("6_sng2h")
 
@@ -61,41 +62,51 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -256.0
+offset_left = -224.0
+offset_top = 16.0
+offset_right = -24.0
 offset_bottom = 64.0
 grow_horizontal = 0
 theme_override_constants/separation = 10
 
 [node name="heart1" type="TextureRect" parent="hud/PlayerHearts" unique_id=98237922]
 layout_mode = 2
-texture = ExtResource("5_p1ry8")
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
 
 [node name="heart2" type="TextureRect" parent="hud/PlayerHearts" unique_id=1023108078]
 layout_mode = 2
-texture = ExtResource("5_p1ry8")
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
 
 [node name="heart3" type="TextureRect" parent="hud/PlayerHearts" unique_id=288384167]
 layout_mode = 2
-texture = ExtResource("5_p1ry8")
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
 
 [node name="OpponentHearts" type="HBoxContainer" parent="hud" unique_id=98900881]
 layout_mode = 1
-offset_right = 265.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 224.0
 offset_bottom = 64.0
 theme_override_constants/separation = 10
 alignment = 2
 
 [node name="heart1" type="TextureRect" parent="hud/OpponentHearts" unique_id=1196395486]
 layout_mode = 2
-texture = ExtResource("5_p1ry8")
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
 
 [node name="heart2" type="TextureRect" parent="hud/OpponentHearts" unique_id=519993916]
 layout_mode = 2
-texture = ExtResource("5_p1ry8")
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
 
 [node name="heart3" type="TextureRect" parent="hud/OpponentHearts" unique_id=1230090338]
 layout_mode = 2
-texture = ExtResource("5_p1ry8")
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
 
 [node name="LabelResult" type="Label" parent="hud" unique_id=217031369]
 modulate = Color(6.160736e-06, 0.8228276, 0.28198665, 1)
@@ -139,10 +150,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -450.0
+offset_left = -448.0
 offset_top = -188.0
-offset_right = 450.0
-offset_bottom = 188.0
+offset_right = 448.0
+offset_bottom = 196.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xwcet")
@@ -150,31 +161,31 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_xwcet")
 [node name="rock" type="Button" parent="hud/Panel" unique_id=1938093579]
 visible = false
 layout_mode = 0
-offset_left = 72.0
-offset_top = 89.0
-offset_right = 272.0
-offset_bottom = 289.0
-icon = ExtResource("5_ll5lq")
+offset_left = 66.0
+offset_top = 96.0
+offset_right = 258.0
+offset_bottom = 288.0
+icon = ExtResource("8_jrd6n")
 icon_alignment = 1
 
 [node name="paper" type="Button" parent="hud/Panel" unique_id=540754096]
 visible = false
 layout_mode = 0
-offset_left = 343.0
-offset_top = 90.0
-offset_right = 543.0
-offset_bottom = 290.0
-icon = ExtResource("6_17rxn")
+offset_left = 354.0
+offset_top = 96.0
+offset_right = 546.0
+offset_bottom = 288.0
+icon = ExtResource("9_jhlss")
 icon_alignment = 1
 
 [node name="scissor" type="Button" parent="hud/Panel" unique_id=1470690207]
 visible = false
 layout_mode = 0
-offset_left = 610.0
-offset_top = 86.0
-offset_right = 810.0
-offset_bottom = 286.0
-icon = ExtResource("7_yq8tf")
+offset_left = 642.0
+offset_top = 96.0
+offset_right = 834.0
+offset_bottom = 288.0
+icon = ExtResource("10_jrd6n")
 icon_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2124164623]
