@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dlqbpj1qjt678" path="res://scripts/player.gd" id="1_xo3ru"]
 [ext_resource type="Texture2D" uid="uid://t481dph2dxuw" path="res://assets/mannequin/mannequin_3.png" id="3_2fvbb"]
 [ext_resource type="PackedScene" uid="uid://rfopfdwyor1c" path="res://assets/cc0_-_toilet_paper_roll/scene.gltf" id="4_ihjo1"]
-[ext_resource type="Animation" uid="uid://cn4o018mgmu1j" path="res://animation/anim_breathing_idle.res" id="4_ml7e8"]
+[ext_resource type="Animation" uid="uid://c622uejyuckmt" path="res://animation/anim_breathing_idle.res" id="4_ml7e8"]
 [ext_resource type="PackedScene" uid="uid://81nsjrqooj2h" path="res://assets/moon_rock_03_1k/moon_rock_03_1k.gltf" id="5_dk1vr"]
 [ext_resource type="Animation" uid="uid://hotoa704jkg8" path="res://animation/anim_kick_to_the_groin.res" id="5_ihjo1"]
 [ext_resource type="PackedScene" uid="uid://vl710yhv68uj" path="res://assets/rusty_scissors/scene.gltf" id="6_34jf3"]
@@ -213,7 +213,9 @@ _data = {
 &"anim_uppercut": ExtResource("8_u7b46")
 }
 
-[node name="player" type="Node3D" unique_id=1684425129]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1pbdy"]
+
+[node name="player" type="CharacterBody3D" unique_id=1925171549 groups=["player"]]
 script = ExtResource("1_xo3ru")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=795816415]
@@ -695,6 +697,7 @@ bone_idx = 5
 
 [node name="Camera3D" type="Camera3D" parent="mannequin/Skeleton3D/BoneAttachment3D" unique_id=1754788754]
 transform = Transform3D(-0.9966526, -0.056360275, 0.059221037, -0.05127663, 0.99513626, 0.084111124, -0.06367353, 0.08079292, -0.99469525, -0.028499976, 0.108842134, 0.024656117)
+current = true
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="mannequin/Skeleton3D" unique_id=208563127]
 transform = Transform3D(-0.18427765, -0.25194845, 0.9500335, 0.3186958, -0.9296805, -0.1847336, 0.92977124, 0.2687294, 0.25161424, -0.25859892, 0.9297408, -0.21051763)
@@ -715,3 +718,6 @@ visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=65177624]
 libraries/anim = SubResource("AnimationLibrary_j4wxg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1589579208]
+shape = SubResource("CapsuleShape3D_1pbdy")

@@ -1,13 +1,30 @@
 [gd_scene format=3 uid="uid://jotosmeuxfu0"]
 
+[ext_resource type="Script" uid="uid://prmbitm877b8" path="res://scripts/room.gd" id="1_x71b1"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcc4l"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x71b1"]
+material = SubResource("StandardMaterial3D_gcc4l")
+size = Vector2(15, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gcc4l"]
 material = SubResource("StandardMaterial3D_gcc4l")
 size = Vector2(5, 5)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_bdfyo"]
+material = SubResource("StandardMaterial3D_gcc4l")
+size = Vector2(15, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wb5om"]
+lightmap_size_hint = Vector2i(17, 16)
+size = Vector3(0.72875977, 0.02999878, 2.0234375)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x71b1"]
+size = Vector3(0.72875977, 0.02999878, 0.5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_gcc4l"]
-size = Vector3(0.5, 0.7602539, 0.5)
+size = Vector3(0.07421875, 0.88549805, 1.6513672)
 
 [sub_resource type="Environment" id="Environment_gcc4l"]
 background_energy_multiplier = 0.0
@@ -17,69 +34,132 @@ reflected_light_source = 1
 tonemap_mode = 2
 tonemap_exposure = 0.01
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gcc4l"]
+size = Vector3(2.5326843, 2.2421265, 4.8251953)
+
 [node name="room" type="Node3D" unique_id=239636553]
+script = ExtResource("1_x71b1")
 
 [node name="floor" type="MeshInstance3D" parent="." unique_id=394683839]
-mesh = SubResource("PlaneMesh_gcc4l")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.903302, 0, 0)
+mesh = SubResource("PlaneMesh_x71b1")
 
-[node name="wall1" type="MeshInstance3D" parent="." unique_id=136376091]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -2.5, 0, 0)
-mesh = SubResource("PlaneMesh_gcc4l")
+[node name="WallRoom1" type="CSGBox3D" parent="." unique_id=988019140]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.5, 1.2324966, 0)
+use_collision = true
+size = Vector3(2.5682373, 0.15527344, 5.1015625)
 
-[node name="wall2" type="MeshInstance3D" parent="." unique_id=284667033]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.5, 0, 0)
-mesh = SubResource("PlaneMesh_gcc4l")
+[node name="Door" type="CSGBox3D" parent="WallRoom1" unique_id=12679230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19406891, 0, 0.64966786)
+operation = 2
+size = Vector3(2.1800995, 0.48828125, 1.269516)
 
-[node name="wall3" type="MeshInstance3D" parent="." unique_id=985032109]
-transform = Transform3D(1.9106855e-15, 4.3711385e-08, -0.99999994, 1, -4.3711385e-08, 0, -4.371139e-08, -0.99999994, -4.3711385e-08, 0, 0, 2.5)
-mesh = SubResource("PlaneMesh_gcc4l")
+[node name="WallRoom3" type="CSGBox3D" parent="." unique_id=1976402052]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.5973217, 1.2324966, 0)
+use_collision = true
+size = Vector3(2.5682373, 0.15527344, 5.1015625)
+
+[node name="WallRoom4" type="CSGBox3D" parent="." unique_id=829244942]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 12.368993, 1.2324966, 0)
+use_collision = true
+size = Vector3(2.5682373, 0.15527344, 5.1015625)
+
+[node name="WallToilet" type="CSGBox3D" parent="." unique_id=1807486660]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 7.98845, 1.2324966, 0)
+use_collision = true
+size = Vector3(2.5682373, 0.15527344, 5.1015625)
+
+[node name="Door" type="CSGBox3D" parent="WallToilet" unique_id=1459964702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19406891, 0, 0.64966786)
+operation = 2
+size = Vector3(2.1800995, 0.48828125, 1.269516)
+
+[node name="wall3" type="CSGBox3D" parent="." unique_id=1166481605]
+transform = Transform3D(1.9106855e-15, 4.3711385e-08, -0.99999994, 1, -4.3711385e-08, 0, -4.371139e-08, -0.99999994, -4.3711385e-08, 4.8520117, 1.4228617, 2.5)
+use_collision = true
+size = Vector3(2.9349976, 0.1, 15)
+
+[node name="wall6" type="CSGBox3D" parent="." unique_id=2005482062]
+transform = Transform3D(1.9106855e-15, 4.3711385e-08, -0.99999994, 1, -4.3711385e-08, 0, -4.371139e-08, -0.99999994, -4.3711385e-08, 4.920282, 1.4228617, -2.4852257)
+use_collision = true
+size = Vector3(2.9349976, 0.1, 15)
 
 [node name="wall4" type="MeshInstance3D" parent="." unique_id=846989243]
 transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0, 0, -2.5)
 mesh = SubResource("PlaneMesh_gcc4l")
 
 [node name="roof" type="MeshInstance3D" parent="." unique_id=1431848380]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.00012474507, 2.4983273, 0.0018310547)
-mesh = SubResource("PlaneMesh_gcc4l")
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 4.9013686, 2.4983273, 0.0018310547)
+mesh = SubResource("PlaneMesh_bdfyo")
 
 [node name="TablePlayer" type="MeshInstance3D" parent="." unique_id=1066303693]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2469448, 0.38012695, 0.018811464)
-mesh = SubResource("BoxMesh_gcc4l")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020532608, 0.9051259, 0.018811464)
+mesh = SubResource("BoxMesh_wb5om")
+
+[node name="TablePlayer2" type="MeshInstance3D" parent="." unique_id=240161338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020532608, 0.68796873, 0.00029344857)
+mesh = SubResource("BoxMesh_x71b1")
 
 [node name="TableOpponent" type="MeshInstance3D" parent="." unique_id=902231563]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2512579, 0.5, 0.013691068)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00087857246, 0.4467817, 0.000787735)
 mesh = SubResource("BoxMesh_gcc4l")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1430483133]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.637174, 0.05224037)
 light_color = Color(1, 0.8117647, 0.69803923, 1)
 light_energy = 10.22
-spot_range = 2.871
-spot_angle = 50.75947
+spot_range = 0.94864124
+spot_angle = 50.876648
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=721611115]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.1380346, 1.1328493)
-visible = false
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1147363748]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.179521, 2.1260915, 0.05224037)
 light_color = Color(1, 0.8117647, 0.69803923, 1)
-light_energy = 10.0
-spot_range = 9.422
-spot_angle = 180.0
+light_energy = 5.261
+spot_range = 6.2145066
+spot_angle = 89.99
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=2067119001]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10.214163, 2.1260915, 0.05224037)
+light_color = Color(1, 0.8117647, 0.69803923, 1)
+light_energy = 2.548
+spot_range = 4.036
+spot_angle = 66.23751
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2053853379]
 environment = SubResource("Environment_gcc4l")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1562277118]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3125368, 1.1367186)
-visible = false
-light_color = Color(1, 0.8117647, 0.69803923, 1)
-light_energy = 3.0
-omni_range = 1.917
-omni_attenuation = 3.0
+[node name="Handwashing" type="CSGBox3D" parent="." unique_id=2039340561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200991, 0.5018382, 2.163626)
+use_collision = true
+size = Vector3(4.2834473, 1, 0.70703125)
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1253450183]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1895834, -1.199191)
-visible = false
-light_color = Color(1, 0.8117647, 0.69803923, 1)
-light_energy = 3.0
-omni_range = 1.0
-omni_attenuation = 3.296
+[node name="Toilet" type="CSGBox3D" parent="." unique_id=73732643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.210787, 0.8123851, -1.9171357)
+use_collision = true
+size = Vector3(0.031311035, 1.6206055, 1.0361328)
+
+[node name="Toilet3" type="CSGBox3D" parent="." unique_id=1849514561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.200818, 0.8123851, -1.9171357)
+use_collision = true
+size = Vector3(0.031311035, 1.6206055, 1.0361328)
+
+[node name="Toilet2" type="CSGBox3D" parent="." unique_id=1930186944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.195486, 0.8123851, -1.9171357)
+use_collision = true
+size = Vector3(0.031311035, 1.6206055, 1.0361328)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1533579829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200991, 0.5018382, 2.163626)
+use_collision = true
+size = Vector3(4.2834473, 1, 0.70703125)
+
+[node name="PlayArea" type="Area3D" parent="." unique_id=1489493963]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayArea" unique_id=1346377414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2897186, 1.0943298, 0)
+shape = SubResource("BoxShape3D_gcc4l")
+
+[node name="PlayPosition" type="Marker3D" parent="." unique_id=1578567616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69776106, 0, 0)
+
+[connection signal="body_entered" from="PlayArea" to="." method="_on_play_area_body_entered"]

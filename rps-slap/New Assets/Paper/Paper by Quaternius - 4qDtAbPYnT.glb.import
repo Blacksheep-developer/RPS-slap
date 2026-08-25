@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b2wan0y3q1wps"
-path="res://.godot/imported/Paper by Quaternius - 4qDtAbPYnT.glb-ee765acbb136cb6a4539651ec9afcdef.scn"
+path="res://.godot/imported/Paper by Quaternius - 4qDtAbPYnT.glb-7bb1c65935c5015c78f54b3f19079886.scn"
 
 [deps]
 
-source_file="res://New/Paper/Paper by Quaternius - 4qDtAbPYnT.glb"
-dest_files=["res://.godot/imported/Paper by Quaternius - 4qDtAbPYnT.glb-ee765acbb136cb6a4539651ec9afcdef.scn"]
+source_file="res://New Assets/Paper/Paper by Quaternius - 4qDtAbPYnT.glb"
+dest_files=["res://.godot/imported/Paper by Quaternius - 4qDtAbPYnT.glb-7bb1c65935c5015c78f54b3f19079886.scn"]
 
 [params]
 

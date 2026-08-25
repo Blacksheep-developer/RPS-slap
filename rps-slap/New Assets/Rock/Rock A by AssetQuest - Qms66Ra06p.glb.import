@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://xudvcsrp5r16"
-path="res://.godot/imported/Rock A by AssetQuest - Qms66Ra06p.glb-2e431084f9c41c88d579042b49b31fc6.scn"
+path="res://.godot/imported/Rock A by AssetQuest - Qms66Ra06p.glb-d99a7eaee9d3da0bcd342aa7260baaca.scn"
 
 [deps]
 
-source_file="res://New/Rock/Rock A by AssetQuest - Qms66Ra06p.glb"
-dest_files=["res://.godot/imported/Rock A by AssetQuest - Qms66Ra06p.glb-2e431084f9c41c88d579042b49b31fc6.scn"]
+source_file="res://New Assets/Rock/Rock A by AssetQuest - Qms66Ra06p.glb"
+dest_files=["res://.godot/imported/Rock A by AssetQuest - Qms66Ra06p.glb-d99a7eaee9d3da0bcd342aa7260baaca.scn"]
 
 [params]
 

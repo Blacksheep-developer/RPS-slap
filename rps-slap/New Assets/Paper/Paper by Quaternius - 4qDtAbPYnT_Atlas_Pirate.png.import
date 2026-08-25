@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m65xus5bml88"
-path.s3tc="res://.godot/imported/Scissors by MilkAndBanana - bPoDmWdmdj_misc_scissors.png-84d62e996b0f657c26311ed8f031df8b.s3tc.ctex"
+uid="uid://bnhlv0hxevssm"
+path.s3tc="res://.godot/imported/Paper by Quaternius - 4qDtAbPYnT_Atlas_Pirate.png-491c4c56e9c13af9f77d9fe1fb9897b6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "cfdf22194a924e5900332229e0b857bb"
+"md5": "219f43be043845c1039f47f20d5b6de4"
 }
 
 [deps]
 
-source_file="res://New/Scissors/Scissors by MilkAndBanana - bPoDmWdmdj_misc_scissors.png"
-dest_files=["res://.godot/imported/Scissors by MilkAndBanana - bPoDmWdmdj_misc_scissors.png-84d62e996b0f657c26311ed8f031df8b.s3tc.ctex"]
+source_file="res://New Assets/Paper/Paper by Quaternius - 4qDtAbPYnT_Atlas_Pirate.png"
+dest_files=["res://.godot/imported/Paper by Quaternius - 4qDtAbPYnT_Atlas_Pirate.png-491c4c56e9c13af9f77d9fe1fb9897b6.s3tc.ctex"]
 
 [params]
 

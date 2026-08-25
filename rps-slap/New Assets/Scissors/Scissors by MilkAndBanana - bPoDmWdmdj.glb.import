@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cmsls4hdoa7io"
-path="res://.godot/imported/Scissors by MilkAndBanana - bPoDmWdmdj.glb-3a0a5da2b42eb11b462ecbf856e6e5db.scn"
+path="res://.godot/imported/Scissors by MilkAndBanana - bPoDmWdmdj.glb-165f38c706929ba556e93ebf83a75354.scn"
 
 [deps]
 
-source_file="res://New/Scissors/Scissors by MilkAndBanana - bPoDmWdmdj.glb"
-dest_files=["res://.godot/imported/Scissors by MilkAndBanana - bPoDmWdmdj.glb-3a0a5da2b42eb11b462ecbf856e6e5db.scn"]
+source_file="res://New Assets/Scissors/Scissors by MilkAndBanana - bPoDmWdmdj.glb"
+dest_files=["res://.godot/imported/Scissors by MilkAndBanana - bPoDmWdmdj.glb-165f38c706929ba556e93ebf83a75354.scn"]
 
 [params]
 

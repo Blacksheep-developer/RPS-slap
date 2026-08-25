@@ -1,15 +1,21 @@
-extends Node3D
+extends CharacterBody3D
+
+# ------- Movement ------------
+@export var speed: int = 3
 
 # --------------- References ---------------
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var game: Node3D = get_node("..")
+@onready var room: Node3D = $"../room"
+
 
 @onready var rock_obg = $mannequin/Skeleton3D/BoneAttachment3D2/rock
 @onready var paper_obg = $mannequin/Skeleton3D/BoneAttachment3D2/paper
 @onready var scissor_obg = $mannequin/Skeleton3D/BoneAttachment3D2/scissor
 enum choice { ROCK, PAPER, SCISSOR}
 
-var rotating: bool = false
+var is_rotating: bool = false
+var is_lerping: bool = false
 
 var target_y: float = 89.5
 var rotation_speed: float = 3
@@ -20,6 +26,8 @@ var max_health = 3
 var current_health
 
 @onready var gamemanager = owner
+var play_position: Vector3
+var lerp_speed: float = 1
 
 
 
@@ -27,28 +35,54 @@ var current_health
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	current_health = max_health
+	room.player_detected.connect(_on_player_detected)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and mouse_rotation_enabled:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("start"):
-		if game.is_playing:
-			return
-		game.play()
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		mouse_rotation_enabled = false
-		rotating = true
+	var input := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var direction := (transform.basis * Vector3(input.x,  0, input.y)).normalized()
+	velocity.x = direction.x * speed
+	velocity.z = direction.z * speed
+	
+	#move_and_slide()
+	
+	#if Input.is_action_just_pressed("start"):
+		#if game.is_playing:
+			#return
+		#game.play()
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		#mouse_rotation_enabled = false
+		#rotating = true
 
-	if rotating:
+	if is_rotating:
 		rotation.y = lerp_angle(rotation.y, target_y, rotation_speed * delta)
 		if abs(rotation.y - target_y) < 0.01:
 			rotation.y = target_y
-			rotating = false
+			is_rotating = false
+	if is_lerping:
+		global_position = global_position.lerp(play_position, lerp_speed * delta)
+		if global_position.distance_to(play_position) < 0.1:
+			global_position = play_position
+			is_lerping = false
+	
+	move_and_slide()
 # =================================================================================================
 
 
+
+func _on_player_detected(target: Vector3) -> void: # fix player position and rotation
+	if game.is_playing:
+		return
+	play_position = target
+	game.play()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	mouse_rotation_enabled = false
+	speed = 0
+	is_rotating = true
+	is_lerping = true
 
 func slap():
 	anim_player.play("anim/anim_right_hook")
@@ -61,7 +95,7 @@ func minus_health():
 
 func mouse_capture():
 	mouse_rotation_enabled = true
-	rotating = false
+	is_rotating = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func show_rock():

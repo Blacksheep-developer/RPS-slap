@@ -705,5 +705,10 @@ visible = false
 transform = Transform3D(0.093496054, -0.99041194, -0.10171464, -0.9641754, -0.06459678, -0.25728354, 0.24824579, 0.12212551, -0.96096945, 0.15571271, 0.11449903, 0.0114154965)
 visible = false
 
+[node name="BoneAttachmentFace" type="BoneAttachment3D" parent="mannequin/Skeleton3D" unique_id=276606110]
+transform = Transform3D(0.9958436, 0.06962936, -0.058713563, -0.06540206, 0.9953239, 0.071083196, 0.0633885, -0.06694776, 0.99574083, 0.011672357, 1.5359251, -0.031115092)
+bone_name = "Head"
+bone_idx = 5
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1360640732]
 libraries/anim = SubResource("AnimationLibrary_tpjjn")

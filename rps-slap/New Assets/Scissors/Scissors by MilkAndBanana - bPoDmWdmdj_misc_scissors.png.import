@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b10w4fc8prmxq"
-path.s3tc="res://.godot/imported/Rock A by AssetQuest - Qms66Ra06p_Pond_Props_BaseColor.png-17a1552c5a2c573bb70066c92f8b43d4.s3tc.ctex"
+uid="uid://m65xus5bml88"
+path.s3tc="res://.godot/imported/Scissors by MilkAndBanana - bPoDmWdmdj_misc_scissors.png-a08b92aaab66818d24d901b9d1aa2693.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "0e5d3dd33c91516c77e9fe1c1c4f6842"
+"md5": "cfdf22194a924e5900332229e0b857bb"
 }
 
 [deps]
 
-source_file="res://New/Rock/Rock A by AssetQuest - Qms66Ra06p_Pond_Props_BaseColor.png"
-dest_files=["res://.godot/imported/Rock A by AssetQuest - Qms66Ra06p_Pond_Props_BaseColor.png-17a1552c5a2c573bb70066c92f8b43d4.s3tc.ctex"]
+source_file="res://New Assets/Scissors/Scissors by MilkAndBanana - bPoDmWdmdj_misc_scissors.png"
+dest_files=["res://.godot/imported/Scissors by MilkAndBanana - bPoDmWdmdj_misc_scissors.png-a08b92aaab66818d24d901b9d1aa2693.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dhrjqdbtklb3e"
-path="res://.godot/imported/Business Man by Quaternius - JFrLIKqvCH.glb-5cdd479825ad61f304f4cce8bb0747f7.scn"
+path="res://.godot/imported/Business Man by Quaternius - JFrLIKqvCH.glb-969d5fb6cf39b8e626610ce39f4fff5c.scn"
 
 [deps]
 
-source_file="res://New/Character/Business Man by Quaternius - JFrLIKqvCH.glb"
-dest_files=["res://.godot/imported/Business Man by Quaternius - JFrLIKqvCH.glb-5cdd479825ad61f304f4cce8bb0747f7.scn"]
+source_file="res://New Assets/Character/Business Man by Quaternius - JFrLIKqvCH.glb"
+dest_files=["res://.godot/imported/Business Man by Quaternius - JFrLIKqvCH.glb-969d5fb6cf39b8e626610ce39f4fff5c.scn"]
 
 [params]
 

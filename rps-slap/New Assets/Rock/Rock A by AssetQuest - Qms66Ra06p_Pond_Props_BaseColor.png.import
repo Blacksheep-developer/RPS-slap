@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnhlv0hxevssm"
-path.s3tc="res://.godot/imported/Paper by Quaternius - 4qDtAbPYnT_Atlas_Pirate.png-b870764a67fdb4a14426ee31dbe4a557.s3tc.ctex"
+uid="uid://b10w4fc8prmxq"
+path.s3tc="res://.godot/imported/Rock A by AssetQuest - Qms66Ra06p_Pond_Props_BaseColor.png-7548f2c882789bf4d0ea1fd6f93bc9fa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "219f43be043845c1039f47f20d5b6de4"
+"md5": "0e5d3dd33c91516c77e9fe1c1c4f6842"
 }
 
 [deps]
 
-source_file="res://New/Paper/Paper by Quaternius - 4qDtAbPYnT_Atlas_Pirate.png"
-dest_files=["res://.godot/imported/Paper by Quaternius - 4qDtAbPYnT_Atlas_Pirate.png-b870764a67fdb4a14426ee31dbe4a557.s3tc.ctex"]
+source_file="res://New Assets/Rock/Rock A by AssetQuest - Qms66Ra06p_Pond_Props_BaseColor.png"
+dest_files=["res://.godot/imported/Rock A by AssetQuest - Qms66Ra06p_Pond_Props_BaseColor.png-7548f2c882789bf4d0ea1fd6f93bc9fa.s3tc.ctex"]
 
 [params]
 

@@ -28,9 +28,10 @@ script = ExtResource("1_33cqm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5027485, 0, 0)
 
 [node name="room" parent="." unique_id=239636553 instance=ExtResource("2_33cqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0031841993, 0, -3.6001205e-05)
 
 [node name="player" parent="." unique_id=1684425129 instance=ExtResource("1_dbls1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5037025, 0, 0)
+transform = Transform3D(-0.88087225, 0, -0.47335413, 0, 1, 0, 0.47335413, 0, -0.88087225, 9.743547, 0, -1.705621)
 
 [node name="hud" type="Control" parent="." unique_id=579823506]
 layout_mode = 3

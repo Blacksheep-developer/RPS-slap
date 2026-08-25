@@ -32,7 +32,7 @@ var player_take_damage = false
 
 # ===============================================================================
 func _ready() -> void:
-	waiting()
+	#waiting()
 	update_player_hearts(player.max_health)
 	update_opponent_hearts(opponent.max_health)
 # ===============================================================================
@@ -51,14 +51,15 @@ func play():
 	paper_button.visible = true
 	scissor_button.visible = true
 	#result_panel.visible = false
-
-func waiting():
-	is_playing = false
-	#start_label.visible = true
-	label.text = "press [SPACE]"
-	label_result.text = ""
-	player.mouse_capture()
 	player.anim_player.play("anim/anim_breathing_idle")
+
+#func waiting():
+	#is_playing = false
+	##start_label.visible = true
+	##label.text = "press [SPACE]"
+	#label_result.text = ""
+	##player.mouse_capture()
+	#player.anim_player.play("anim/anim_breathing_idle")
 
 func compare_choices():
 	if player_choice == opponent_choice:
@@ -84,7 +85,8 @@ func draw():
 	label_result.text = ""
 	player.hide_obj()
 	opponent.hide_obj()
-	waiting()
+	is_playing = false
+	play()
 
 func win():
 	label_result.modulate = Color.AQUAMARINE
@@ -105,11 +107,13 @@ func win():
 	if opponent.current_health > 0:
 		player.hide_obj()
 		opponent.hide_obj()
-		waiting()
+		#waiting()
+		is_playing = false
+		play()
 	else:
 		Autoloaded.is_win = true
 		Autoloaded.current_money += Autoloaded.invested_money * 2 # ----------Money
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0).timeout
 		results()
 
 func loose():
@@ -131,10 +135,12 @@ func loose():
 	if player.current_health > 0:
 		player.hide_obj()
 		opponent.hide_obj()
-		waiting()
+		#waiting()
+		is_playing = false
+		play()
 	else:
 		Autoloaded.is_win = false
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0).timeout
 		results()
 
 func update_player_hearts(health: int):

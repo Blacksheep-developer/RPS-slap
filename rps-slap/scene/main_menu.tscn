@@ -8,11 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c580x3bnsnkx" path="res://New/2D/Hand.png" id="6_ictww"]
 [ext_resource type="AudioStream" uid="uid://bndof2o6w4sy2" path="res://Audio/Music/Loyalty_Freak_Music_-_02_-_One_Cool_Minute(chosic.com).mp3" id="7_2atga"]
 
-[sub_resource type="SystemFont" id="SystemFont_qtd7a"]
-
-[sub_resource type="Theme" id="Theme_niw12"]
-default_font = SubResource("SystemFont_qtd7a")
-default_font_size = 50
+[sub_resource type="Theme" id="Theme_0mmmg"]
+default_font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1toly"]
 bg_color = Color(0, 0, 0, 1)
@@ -96,7 +93,7 @@ alignment = 1
 [node name="SpinBox" type="SpinBox" parent="Control/Panel" unique_id=1384044491]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-theme = SubResource("Theme_niw12")
+theme = SubResource("Theme_0mmmg")
 min_value = 100.0
 max_value = 1000000.0
 value = 100.0
