@@ -11,6 +11,7 @@ var current_choice: choice
 
 var max_health = 3
 var current_health
+const BLEND_TIME = 0.4
 
 
 
@@ -28,10 +29,11 @@ func pick_random() -> choice:
 	return current_choice
 
 func slap():
-	anim_player.play("anim/anim_right_hook")
-
+	anim_player.play("anim/anim_right_hook", BLEND_TIME)
 func hit():
-	anim_player.play("anim/anim_kick_to_the_groin")
+	anim_player.play("anim/anim_kick_to_the_groin", BLEND_TIME)
+func breathing():
+	anim_player.play("anim/anim_breathing_idle", BLEND_TIME)
 
 func minus_health():
 	current_health -= 1

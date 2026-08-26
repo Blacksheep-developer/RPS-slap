@@ -11,11 +11,27 @@ var player_take_damage = false
 # ----------- Reference -----------
 @onready var player = $player
 @onready var opponent = $opponent
-@onready var rock_button = $hud/Panel/rock # ------------ Buttons
+@onready var rock_button = $hud/Panel/rock # --- Buttons
 @onready var paper_button = $hud/Panel/paper
 @onready var scissor_button = $hud/Panel/scissor
-@onready var label: Label = $hud/Label # ------------ LABELS
+@onready var label: Label = $hud/Label # ------- LABELS
 @onready var label_result: Label = $hud/LabelResult
+
+@onready var left_heart_holder: TextureRect = $hud/LeftHeartHolder
+@onready var right_heart_holder: TextureRect = $hud/RightHeartHolder
+@onready var player_hearts_container: HBoxContainer = $hud/PlayerHearts
+@onready var opponent_hearts_container: HBoxContainer = $hud/OpponentHearts
+
+# ----------- Audio -----------
+const PAPER_PAPER_TRACK = preload("uid://bqay0cfagkt6s")
+const PAPER_ROCK_TRACK = preload("uid://5jtyy2fq1yyo")
+const PAPER_SCISSORS_TRACK = preload("uid://cto7qkom053wc")
+const ROCK_ROCK_TRACK = preload("uid://64iaftml0tqg")
+const SCISSOR_ROCK_TRACK = preload("uid://wkw2144q83sq")
+const SCISSOR_SCICOR_TRACK = preload("uid://5fsxwvwml153")
+const SMACK_TRACK = preload("uid://d0v7acknhmd2w")
+
+var audio_player: AudioStreamPlayer
 
 @onready var player_hearts: Array[Node] = [
 	$hud/PlayerHearts/heart1,
@@ -32,9 +48,18 @@ var player_take_damage = false
 
 # ===============================================================================
 func _ready() -> void:
-	#waiting()
 	update_player_hearts(player.max_health)
 	update_opponent_hearts(opponent.max_health)
+	player.anim_player.play("anim/anim_breathing_idle")
+	opponent.anim_player.play("anim/anim_breathing_idle")
+	left_heart_holder.visible = false # -------------------UI
+	right_heart_holder.visible = false
+	player_hearts_container.visible = false
+	opponent_hearts_container.visible = false
+	audio_player = AudioStreamPlayer.new()
+	audio_player.volume_db = +20
+	add_child(audio_player)
+	Autoloaded.was_playing = true
 # ===============================================================================
 
 
@@ -43,30 +68,53 @@ func play():
 	if is_playing:
 		return
 	is_playing = true
-	#start_label.visible = false
 	label.text = ""
 	label_result.text = ""
 
 	rock_button.visible = true
 	paper_button.visible = true
 	scissor_button.visible = true
-	#result_panel.visible = false
 	player.anim_player.play("anim/anim_breathing_idle")
-
-#func waiting():
-	#is_playing = false
-	##start_label.visible = true
-	##label.text = "press [SPACE]"
-	#label_result.text = ""
-	##player.mouse_capture()
-	#player.anim_player.play("anim/anim_breathing_idle")
+	opponent.anim_player.play("anim/anim_breathing_idle")
+	left_heart_holder.visible = true
+	right_heart_holder.visible = true
+	player_hearts_container.visible = true
+	opponent_hearts_container.visible = true
 
 func compare_choices():
 	if player_choice == opponent_choice:
+		if player_choice == 0:
+			audio_player.stream = ROCK_ROCK_TRACK
+			audio_player.play()
+		elif player_choice == 1:
+			audio_player.stream = PAPER_PAPER_TRACK
+			audio_player.play()
+		else:
+			audio_player.stream = SCISSOR_SCICOR_TRACK
+			audio_player.play()
 		draw()
+	
 	elif (player_choice == 0 and opponent_choice == 2) or (player_choice == 1 and opponent_choice == 0) or (player_choice == 2 and opponent_choice == 1):
+		if player_choice == 0 and opponent_choice == 2:
+			audio_player.stream = SCISSOR_ROCK_TRACK
+			audio_player.play()
+		elif player_choice == 1 and opponent_choice == 0:
+			audio_player.stream = PAPER_ROCK_TRACK
+			audio_player.play()
+		elif player_choice == 2 and opponent_choice == 1:
+			audio_player.stream = PAPER_SCISSORS_TRACK
+			audio_player.play()
 		win()
 	else:
+		if player_choice == 2 and opponent_choice == 0:
+			audio_player.stream = SCISSOR_ROCK_TRACK
+			audio_player.play()
+		elif player_choice == 0 and opponent_choice == 1:
+			audio_player.stream = PAPER_ROCK_TRACK
+			audio_player.play()
+		elif player_choice == 1 and opponent_choice == 2:
+			audio_player.stream = PAPER_SCISSORS_TRACK
+			audio_player.play()
 		loose()
 
 func show_obj():
@@ -77,11 +125,9 @@ func show_obj():
 	if opponent_choice == 2:
 		opponent.show_scissor()
 func draw():
-	#draw_label.visible = true
 	label_result.modulate = Color.GRAY
 	label_result.text = "DRAW"
 	await get_tree().create_timer(2).timeout
-	#draw_label.visible = false
 	label_result.text = ""
 	player.hide_obj()
 	opponent.hide_obj()
@@ -97,23 +143,25 @@ func win():
 	player.slap()
 	await get_tree().create_timer(0.2).timeout
 	opponent.hit()
-	await get_tree().create_timer(0.5).timeout
+	audio_player.stream = SMACK_TRACK # ------- audio
+	audio_player.play()
+	#await get_tree().create_timer(0.5).timeout
 	if not opponent_take_damage:
 		opponent_take_damage = true
 		opponent.minus_health()
 		update_opponent_hearts(opponent.current_health)
-	await get_tree().create_timer(2.1).timeout # 3.1
+	
 	opponent_take_damage = false
 	if opponent.current_health > 0:
 		player.hide_obj()
 		opponent.hide_obj()
-		#waiting()
 		is_playing = false
+		await get_tree().create_timer(3.1).timeout # 2.6
 		play()
 	else:
 		Autoloaded.is_win = true
-		Autoloaded.current_money += Autoloaded.invested_money * 2 # ----------Money
-		await get_tree().create_timer(0).timeout
+		Autoloaded.current_money += Autoloaded.invested_money * 2 # Money
+		await get_tree().create_timer(0.4).timeout
 		results()
 
 func loose():
@@ -125,22 +173,24 @@ func loose():
 	opponent.slap() # ------------Slap animation
 	await get_tree().create_timer(0.2).timeout
 	player.hit() # -------------Hurt animation
-	await get_tree().create_timer(0.5).timeout
+	audio_player.stream = SMACK_TRACK # ------- audio
+	audio_player.play()
+	#await get_tree().create_timer(0.5).timeout
 	if not player_take_damage:
 		player_take_damage = true
-		player.minus_health() # -------take damage
+		player.minus_health() # -----------------take damage
 		update_player_hearts(player.current_health) # ---------UI hearts
-	await get_tree().create_timer(2.1).timeout # 3.1
+	
 	player_take_damage = false
 	if player.current_health > 0:
 		player.hide_obj()
 		opponent.hide_obj()
-		#waiting()
 		is_playing = false
+		await get_tree().create_timer(3.1).timeout # 2.6
 		play()
 	else:
 		Autoloaded.is_win = false
-		await get_tree().create_timer(0).timeout
+		await get_tree().create_timer(0.4).timeout
 		results()
 
 func update_player_hearts(health: int):
@@ -152,7 +202,6 @@ func update_opponent_hearts(health: int):
 		opponent_hearts[i].visible = i < health
 
 func _on_rock_pressed() -> void:
-	#player_is_rock = true
 	player_choice = 0
 	rock_button.visible = false
 	paper_button.visible = false
@@ -170,7 +219,6 @@ func _on_rock_pressed() -> void:
 	compare_choices()
 
 func _on_paper_pressed() -> void:
-	#player_is_paper = true
 	player_choice = 1
 	rock_button.visible = false
 	paper_button.visible = false
@@ -188,7 +236,6 @@ func _on_paper_pressed() -> void:
 	compare_choices()
 
 func _on_scissor_pressed() -> void:
-	#player_is_scissor = true
 	player_choice = 2
 	rock_button.visible = false
 	paper_button.visible = false
@@ -221,6 +268,6 @@ func countdown():
 	label.text = ""
 
 func results():
-	if not is_inside_tree():   # fix bug where if player loose game crash before changing to results scene 
+	if not is_inside_tree():   # fix bug where if player loose game crash before changing to results scene
 		return
 	get_tree().change_scene_to_file("res://scene/results.tscn")

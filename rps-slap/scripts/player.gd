@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var game: Node3D = get_node("..")
 @onready var room: Node3D = $"../room"
+const breathing_anim = preload("uid://c622uejyuckmt")
 
 
 @onready var rock_obg = $mannequin/Skeleton3D/BoneAttachment3D2/rock
@@ -29,6 +30,8 @@ var current_health
 var play_position: Vector3
 var lerp_speed: float = 1
 
+const BLEND_TIME = 0.4
+
 
 
 # =================================================================================================
@@ -46,9 +49,9 @@ func _process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input.x,  0, input.y)).normalized()
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
-	
+
 	#move_and_slide()
-	
+
 	#if Input.is_action_just_pressed("start"):
 		#if game.is_playing:
 			#return
@@ -67,7 +70,7 @@ func _process(delta: float) -> void:
 		if global_position.distance_to(play_position) < 0.1:
 			global_position = play_position
 			is_lerping = false
-	
+
 	move_and_slide()
 # =================================================================================================
 
@@ -85,10 +88,11 @@ func _on_player_detected(target: Vector3) -> void: # fix player position and rot
 	is_lerping = true
 
 func slap():
-	anim_player.play("anim/anim_right_hook")
-
+	anim_player.play("anim/anim_right_hook", BLEND_TIME)
 func hit():
-	anim_player.play("anim/anim_kick_to_the_groin")
+	anim_player.play("anim/anim_kick_to_the_groin", BLEND_TIME)
+func breathing():
+	anim_player.play("anim/anim_breathing_idle", BLEND_TIME)
 
 func minus_health():
 	current_health -= 1

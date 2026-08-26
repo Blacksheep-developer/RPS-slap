@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://tp6ave2c8018" path="res://assets/right_heart_holder.png" id="6_sng2h"]
 [ext_resource type="Texture2D" uid="uid://p8ac3oi1l8i" path="res://New/2D/Heart.png" id="7_ym5sv"]
 [ext_resource type="Texture2D" uid="uid://bt3056jaibhpx" path="res://New/2D/Small/RockSmall.png" id="8_jrd6n"]
-[ext_resource type="AudioStream" uid="uid://bndof2o6w4sy2" path="res://Audio/Music/Loyalty_Freak_Music_-_02_-_One_Cool_Minute(chosic.com).mp3" id="9_17rxn"]
 [ext_resource type="Texture2D" uid="uid://daamuwm7nrtk3" path="res://New/2D/Small/PaperSmall.png" id="9_jhlss"]
 [ext_resource type="Texture2D" uid="uid://bw3lhal461tt2" path="res://New/2D/Small/ScissorSmall.png" id="10_jrd6n"]
 
@@ -31,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5027485, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0031841993, 0, -3.6001205e-05)
 
 [node name="player" parent="." unique_id=1684425129 instance=ExtResource("1_dbls1")]
-transform = Transform3D(-0.88087225, 0, -0.47335413, 0, 1, 0, 0.47335413, 0, -0.88087225, 9.743547, 0, -1.705621)
+transform = Transform3D(-0.88087225, 0, -0.47335413, 0, 1, 0, 0.47335413, 0, -0.88087225, 9.743547, 0.8547939, -1.705621)
 
 [node name="hud" type="Control" parent="." unique_id=579823506]
 layout_mode = 3
@@ -188,10 +187,6 @@ offset_right = 834.0
 offset_bottom = 288.0
 icon = ExtResource("10_jrd6n")
 icon_alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2124164623]
-stream = ExtResource("9_17rxn")
-autoplay = true
 
 [connection signal="pressed" from="hud/Panel/rock" to="." method="_on_rock_pressed"]
 [connection signal="pressed" from="hud/Panel/paper" to="." method="_on_paper_pressed"]

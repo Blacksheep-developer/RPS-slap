@@ -7,6 +7,7 @@ extends Control
 
 # ===================================================================================================
 func _ready() -> void:
+	Autoloaded.is_result = true
 	if Autoloaded.is_win:
 		win()
 	else:
@@ -18,19 +19,21 @@ func _ready() -> void:
 func win():
 	title.modulate = Color.GREEN
 	title.text = "Congratulation"
-	results.text = "You won " + str(Autoloaded.invested_money * 2) + " €"
+	results.text = "You won " + str(Autoloaded.invested_money * 2) + "  €"
 	await get_tree().create_timer(5).timeout
 	Autoloaded.invested_money = 0
 	if not is_inside_tree():
 		return
+	Autoloaded.is_result = false
 	get_tree().change_scene_to_file("res://scene/main_menu.tscn")
 	
 func loose():
 	title.modulate = Color.RED
 	title.text = "GameOver"
-	results.text = "You lost " + str(Autoloaded.invested_money) + " €"
+	results.text = "You lost " + str(Autoloaded.invested_money) + "  €"
 	await get_tree().create_timer(5).timeout
 	Autoloaded.invested_money = 0
 	if not is_inside_tree():
 		return
+	Autoloaded.is_result = false
 	get_tree().change_scene_to_file("res://scene/main_menu.tscn")
