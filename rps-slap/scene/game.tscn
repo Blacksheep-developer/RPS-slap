@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://b1hutko80s1v8" path="res://scripts/gamemanager.gd" id="1_33cqm"]
 [ext_resource type="PackedScene" uid="uid://b7bqodoqn6f6s" path="res://scene/player.tscn" id="1_dbls1"]
 [ext_resource type="PackedScene" uid="uid://jotosmeuxfu0" path="res://scene/room.tscn" id="2_33cqm"]
-[ext_resource type="PackedScene" uid="uid://cmb7aghv0x4xl" path="res://scene/opponent.tscn" id="2_xwcet"]
+[ext_resource type="PackedScene" uid="uid://hv6fg5387q7i" path="res://scene/opponent_1.tscn" id="2_ym5sv"]
+[ext_resource type="PackedScene" uid="uid://c42ckldi38svk" path="res://scene/security.tscn" id="3_sng2h"]
 [ext_resource type="Texture2D" uid="uid://cbtvoug34qx2p" path="res://assets/left_heart_holder.png" id="5_ym5sv"]
 [ext_resource type="Texture2D" uid="uid://tp6ave2c8018" path="res://assets/right_heart_holder.png" id="6_sng2h"]
 [ext_resource type="Texture2D" uid="uid://p8ac3oi1l8i" path="res://New/2D/Heart.png" id="7_ym5sv"]
 [ext_resource type="Texture2D" uid="uid://bt3056jaibhpx" path="res://New/2D/Small/RockSmall.png" id="8_jrd6n"]
 [ext_resource type="Texture2D" uid="uid://daamuwm7nrtk3" path="res://New/2D/Small/PaperSmall.png" id="9_jhlss"]
 [ext_resource type="Texture2D" uid="uid://bw3lhal461tt2" path="res://New/2D/Small/ScissorSmall.png" id="10_jrd6n"]
+[ext_resource type="Shader" uid="uid://c47k8iju28572" path="res://scripts/buckshot_effect.gdshader" id="11_ym5sv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ll5lq"]
 font_size = 70
@@ -20,17 +22,71 @@ font_size = 30
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwcet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ym5sv"]
+bg_color = Color(0.5538776, 0.4273971, 0.29896897, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ve786"]
+bg_color = Color(0.047058824, 0.023529412, 0.007843138, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x71b1"]
+bg_color = Color(0.7, 0.539, 0.37799996, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1pbdy"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sng2h"]
+bg_color = Color(0.5529412, 0.42745098, 0.29803923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb5om"]
+bg_color = Color(0.047058824, 0.023529412, 0.007843138, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lu6w"]
+bg_color = Color(0.7019608, 0.5372549, 0.3764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5g16k"]
+bg_color = Color(0.5529412, 0.42745098, 0.29803923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81276"]
+bg_color = Color(0.04820323, 0.02487991, 0.009775983, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdfyo"]
+bg_color = Color(0.7019608, 0.5372549, 0.3764706, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1pbdy"]
+shader = ExtResource("11_ym5sv")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 3.0
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 16.0
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.07
+shader_parameter/vignette_strength = 1.0
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
+
 [node name="game" type="Node3D" unique_id=627441399]
 script = ExtResource("1_33cqm")
 
-[node name="opponent" parent="." unique_id=908181378 instance=ExtResource("2_xwcet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5027485, 0, 0)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1442192200]
+visible = false
+
+[node name="opponent" parent="." unique_id=908181378 instance=ExtResource("2_ym5sv")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -0.52016765, 0, 0)
+
+[node name="security" parent="." unique_id=105438365 instance=ExtResource("3_sng2h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8360062, 0, -0.24101895)
 
 [node name="room" parent="." unique_id=239636553 instance=ExtResource("2_33cqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0031841993, 0, -3.6001205e-05)
 
 [node name="player" parent="." unique_id=1684425129 instance=ExtResource("1_dbls1")]
-transform = Transform3D(-0.88087225, 0, -0.47335413, 0, 1, 0, 0.47335413, 0, -0.88087225, 9.743547, 0.8547939, -1.705621)
+transform = Transform3D(-0.9976428, 0, 0.06862207, 0, 1, 0, -0.06862207, 0, -0.9976428, 9.743547, 0.9849732, -1.2558932)
 
 [node name="hud" type="Control" parent="." unique_id=579823506]
 layout_mode = 3
@@ -56,57 +112,6 @@ offset_right = -2.0
 offset_bottom = 100.0
 grow_horizontal = 0
 texture = ExtResource("6_sng2h")
-
-[node name="PlayerHearts" type="HBoxContainer" parent="hud" unique_id=809746830]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -224.0
-offset_top = 16.0
-offset_right = -24.0
-offset_bottom = 64.0
-grow_horizontal = 0
-theme_override_constants/separation = 10
-
-[node name="heart1" type="TextureRect" parent="hud/PlayerHearts" unique_id=98237922]
-layout_mode = 2
-texture = ExtResource("7_ym5sv")
-expand_mode = 3
-
-[node name="heart2" type="TextureRect" parent="hud/PlayerHearts" unique_id=1023108078]
-layout_mode = 2
-texture = ExtResource("7_ym5sv")
-expand_mode = 3
-
-[node name="heart3" type="TextureRect" parent="hud/PlayerHearts" unique_id=288384167]
-layout_mode = 2
-texture = ExtResource("7_ym5sv")
-expand_mode = 3
-
-[node name="OpponentHearts" type="HBoxContainer" parent="hud" unique_id=98900881]
-layout_mode = 1
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 224.0
-offset_bottom = 64.0
-theme_override_constants/separation = 10
-alignment = 2
-
-[node name="heart1" type="TextureRect" parent="hud/OpponentHearts" unique_id=1196395486]
-layout_mode = 2
-texture = ExtResource("7_ym5sv")
-expand_mode = 3
-
-[node name="heart2" type="TextureRect" parent="hud/OpponentHearts" unique_id=519993916]
-layout_mode = 2
-texture = ExtResource("7_ym5sv")
-expand_mode = 3
-
-[node name="heart3" type="TextureRect" parent="hud/OpponentHearts" unique_id=1230090338]
-layout_mode = 2
-texture = ExtResource("7_ym5sv")
-expand_mode = 3
 
 [node name="LabelResult" type="Label" parent="hud" unique_id=217031369]
 modulate = Color(6.160736e-06, 0.8228276, 0.28198665, 1)
@@ -164,9 +169,25 @@ layout_mode = 0
 offset_left = 66.0
 offset_top = 96.0
 offset_right = 258.0
-offset_bottom = 288.0
+offset_bottom = 384.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ym5sv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ve786")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x71b1")
 icon = ExtResource("8_jrd6n")
 icon_alignment = 1
+
+[node name="Label" type="Label" parent="hud/Panel/rock" unique_id=437266922]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+offset_right = 119.0
+grow_vertical = 0
+text = "Rock"
+label_settings = SubResource("LabelSettings_1pbdy")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="paper" type="Button" parent="hud/Panel" unique_id=540754096]
 visible = false
@@ -174,9 +195,25 @@ layout_mode = 0
 offset_left = 354.0
 offset_top = 96.0
 offset_right = 546.0
-offset_bottom = 288.0
+offset_bottom = 384.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_sng2h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wb5om")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0lu6w")
 icon = ExtResource("9_jhlss")
 icon_alignment = 1
+
+[node name="Label" type="Label" parent="hud/Panel/paper" unique_id=1182622793]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+offset_right = 119.0
+grow_vertical = 0
+text = "Paper"
+label_settings = SubResource("LabelSettings_1pbdy")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="scissor" type="Button" parent="hud/Panel" unique_id=1470690207]
 visible = false
@@ -184,9 +221,86 @@ layout_mode = 0
 offset_left = 642.0
 offset_top = 96.0
 offset_right = 834.0
-offset_bottom = 288.0
+offset_bottom = 384.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5g16k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_81276")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bdfyo")
 icon = ExtResource("10_jrd6n")
 icon_alignment = 1
+
+[node name="Label" type="Label" parent="hud/Panel/scissor" unique_id=2137998172]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+offset_right = 119.0
+grow_vertical = 0
+text = "Scissor"
+label_settings = SubResource("LabelSettings_1pbdy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="hud" unique_id=520137982]
+material = SubResource("ShaderMaterial_1pbdy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerHearts" type="HBoxContainer" parent="hud" unique_id=809746830]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -224.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="heart1" type="TextureRect" parent="hud/PlayerHearts" unique_id=98237922]
+layout_mode = 2
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
+
+[node name="heart2" type="TextureRect" parent="hud/PlayerHearts" unique_id=1023108078]
+layout_mode = 2
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
+
+[node name="heart3" type="TextureRect" parent="hud/PlayerHearts" unique_id=288384167]
+layout_mode = 2
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
+
+[node name="OpponentHearts" type="HBoxContainer" parent="hud" unique_id=98900881]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 224.0
+offset_bottom = 64.0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="heart1" type="TextureRect" parent="hud/OpponentHearts" unique_id=1196395486]
+layout_mode = 2
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
+
+[node name="heart2" type="TextureRect" parent="hud/OpponentHearts" unique_id=519993916]
+layout_mode = 2
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
+
+[node name="heart3" type="TextureRect" parent="hud/OpponentHearts" unique_id=1230090338]
+layout_mode = 2
+texture = ExtResource("7_ym5sv")
+expand_mode = 3
 
 [connection signal="pressed" from="hud/Panel/rock" to="." method="_on_rock_pressed"]
 [connection signal="pressed" from="hud/Panel/paper" to="." method="_on_paper_pressed"]

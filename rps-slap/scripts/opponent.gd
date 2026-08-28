@@ -3,9 +3,9 @@ extends Node3D
 enum choice { ROCK, PAPER, SCISSOR}
 var current_choice: choice
 
-@onready var rock_obg = $mannequin/Skeleton3D/BoneAttachment3D/rock
-@onready var paper_obg = $mannequin/Skeleton3D/BoneAttachment3D/paper
-@onready var scissor_obg = $mannequin/Skeleton3D/BoneAttachment3D/scissor
+@onready var rock_obg = $Skeleton/BoneAttachment3D/rock
+@onready var paper_obg = $Skeleton/BoneAttachment3D/paper
+@onready var scissor_obg = $Skeleton/BoneAttachment3D/scissor
 
 @onready var gamemanager = owner
 
@@ -29,11 +29,13 @@ func pick_random() -> choice:
 	return current_choice
 
 func slap():
-	anim_player.play("anim/anim_right_hook", BLEND_TIME)
+	anim_player.play("opponent/slap", BLEND_TIME)
 func hit():
-	anim_player.play("anim/anim_kick_to_the_groin", BLEND_TIME)
-func breathing():
-	anim_player.play("anim/anim_breathing_idle", BLEND_TIME)
+	anim_player.play("opponent/hit", BLEND_TIME)
+func idle():
+	anim_player.play("opponent/idle", BLEND_TIME)
+func reveal():
+	anim_player.play("opponent/reveal", BLEND_TIME)
 
 func minus_health():
 	current_health -= 1

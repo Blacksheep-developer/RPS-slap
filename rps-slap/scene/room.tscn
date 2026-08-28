@@ -104,26 +104,25 @@ mesh = SubResource("BoxMesh_x71b1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00087857246, 0.4467817, 0.000787735)
 mesh = SubResource("BoxMesh_gcc4l")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1430483133]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.637174, 0.05224037)
+[node name="PlayRLight" type="SpotLight3D" parent="." unique_id=1430483133]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.3946419, 0.05224037)
 light_color = Color(1, 0.8117647, 0.69803923, 1)
-light_energy = 10.22
-spot_range = 1.0361722
-spot_angle = 70.93362
+light_energy = 30.0
+spot_range = 1.7922878
+spot_angle = 38.884758
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1147363748]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.179521, 2.1260915, 0.05224037)
+[node name="WaitingRLight" type="SpotLight3D" parent="." unique_id=1147363748]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.8376756, 2.529915, 0.6585419)
 light_color = Color(1, 0.8117647, 0.69803923, 1)
-light_energy = 5.261
-spot_range = 6.2145066
+light_energy = 20.0
+spot_angle = 57.022224
+
+[node name="ToiletLight" type="SpotLight3D" parent="." unique_id=2067119001]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 8.301893, 2.4107585, 0.6581825)
+light_color = Color(1, 0.8117647, 0.69803923, 1)
+light_energy = 10.0
+spot_range = 3.0
 spot_angle = 89.99
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=2067119001]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10.214163, 2.1260915, 0.05224037)
-light_color = Color(1, 0.8117647, 0.69803923, 1)
-light_energy = 2.548
-spot_range = 4.036
-spot_angle = 66.23751
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2053853379]
 environment = SubResource("Environment_gcc4l")
@@ -160,6 +159,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2897186, 1.0943298, 0)
 shape = SubResource("BoxShape3D_gcc4l")
 
 [node name="PlayPosition" type="Marker3D" parent="." unique_id=1578567616]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698, 1, 0.10034251)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51351935, 1, 0.10034251)
 
 [connection signal="body_entered" from="PlayArea" to="." method="_on_play_area_body_entered"]

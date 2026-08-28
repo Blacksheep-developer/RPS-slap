@@ -10,9 +10,9 @@ extends CharacterBody3D
 const breathing_anim = preload("uid://c622uejyuckmt")
 
 
-@onready var rock_obg = $mannequin/Skeleton3D/BoneAttachment3D2/rock
-@onready var paper_obg = $mannequin/Skeleton3D/BoneAttachment3D2/paper
-@onready var scissor_obg = $mannequin/Skeleton3D/BoneAttachment3D2/scissor
+@onready var rock_obg = $Skeleton/BoneAttachment3D2/rock
+@onready var paper_obg = $Skeleton/BoneAttachment3D2/paper
+@onready var scissor_obg = $Skeleton/BoneAttachment3D2/scissor
 enum choice { ROCK, PAPER, SCISSOR}
 
 var is_rotating: bool = false
@@ -88,11 +88,13 @@ func _on_player_detected(target: Vector3) -> void: # fix player position and rot
 	is_lerping = true
 
 func slap():
-	anim_player.play("anim/anim_right_hook", BLEND_TIME)
+	anim_player.play("player/slap", BLEND_TIME)
 func hit():
-	anim_player.play("anim/anim_kick_to_the_groin", BLEND_TIME)
-func breathing():
-	anim_player.play("anim/anim_breathing_idle", BLEND_TIME)
+	anim_player.play("player/hit", BLEND_TIME)
+func idle():
+	anim_player.play("player/idle", BLEND_TIME)
+func reveal():
+	anim_player.play("player/reveal", BLEND_TIME)
 
 func minus_health():
 	current_health -= 1

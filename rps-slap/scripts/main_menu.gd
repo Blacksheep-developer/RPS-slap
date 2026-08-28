@@ -32,7 +32,7 @@ func _on_play_pressed() -> void:
 	Autoloaded.current_money -= Autoloaded.invested_money
 	update_money()
 	Autoloaded.was_playing = false
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scene/game.tscn")
 
 func _on_quit_pressed() -> void:

@@ -50,14 +50,15 @@ var audio_player: AudioStreamPlayer
 func _ready() -> void:
 	update_player_hearts(player.max_health)
 	update_opponent_hearts(opponent.max_health)
-	player.anim_player.play("anim/anim_breathing_idle")
-	opponent.anim_player.play("anim/anim_breathing_idle")
+	player.idle()
+	opponent.idle()
 	left_heart_holder.visible = false # -------------------UI
 	right_heart_holder.visible = false
 	player_hearts_container.visible = false
 	opponent_hearts_container.visible = false
 	audio_player = AudioStreamPlayer.new()
-	audio_player.volume_db = +20
+	audio_player.volume_db = +10
+	audio_player.pitch_scale = 0.7
 	add_child(audio_player)
 	Autoloaded.was_playing = true
 # ===============================================================================
@@ -74,8 +75,8 @@ func play():
 	rock_button.visible = true
 	paper_button.visible = true
 	scissor_button.visible = true
-	player.anim_player.play("anim/anim_breathing_idle")
-	opponent.anim_player.play("anim/anim_breathing_idle")
+	player.idle()
+	opponent.idle()
 	left_heart_holder.visible = true
 	right_heart_holder.visible = true
 	player_hearts_container.visible = true
@@ -138,7 +139,8 @@ func win():
 	label_result.modulate = Color.AQUAMARINE
 	label_result.text = "WIN"
 	await get_tree().create_timer(2).timeout
-
+	player.hide_obj() # new place for hide obj
+	opponent.hide_obj()
 	label_result.text = ""
 	player.slap()
 	await get_tree().create_timer(0.2).timeout
@@ -150,13 +152,11 @@ func win():
 		opponent_take_damage = true
 		opponent.minus_health()
 		update_opponent_hearts(opponent.current_health)
-	
 	opponent_take_damage = false
 	if opponent.current_health > 0:
-		player.hide_obj()
-		opponent.hide_obj()
+		 # old place of hiding obj
 		is_playing = false
-		await get_tree().create_timer(3.1).timeout # 2.6
+		await get_tree().create_timer(2).timeout # 2.6
 		play()
 	else:
 		Autoloaded.is_win = true
@@ -168,7 +168,8 @@ func loose():
 	label_result.modulate = Color.LIGHT_CORAL
 	label_result.text = "LOOSE"
 	await get_tree().create_timer(2).timeout
-
+	player.hide_obj() # new place for hide obj
+	opponent.hide_obj()
 	label_result.text = ""
 	opponent.slap() # ------------Slap animation
 	await get_tree().create_timer(0.2).timeout
@@ -183,10 +184,9 @@ func loose():
 	
 	player_take_damage = false
 	if player.current_health > 0:
-		player.hide_obj()
-		opponent.hide_obj()
+		# old place of hiding obj
 		is_playing = false
-		await get_tree().create_timer(3.1).timeout # 2.6
+		await get_tree().create_timer(2).timeout # 2.6
 		play()
 	else:
 		Autoloaded.is_win = false
@@ -213,8 +213,8 @@ func _on_rock_pressed() -> void:
 	player.show_rock()
 	show_obj()
 
-	player.anim_player.play("anim/anim_talking")
-	opponent.anim_player.play("anim/anim_talking")
+	player.reveal()
+	opponent.reveal()
 	await get_tree().create_timer(1).timeout
 	compare_choices()
 
@@ -230,8 +230,8 @@ func _on_paper_pressed() -> void:
 	player.show_paper()
 	show_obj()
 
-	player.anim_player.play("anim/anim_talking")
-	opponent.anim_player.play("anim/anim_talking")
+	player.reveal()
+	opponent.reveal()
 	await get_tree().create_timer(1).timeout
 	compare_choices()
 
@@ -247,8 +247,8 @@ func _on_scissor_pressed() -> void:
 	player.show_scissor()
 	show_obj()
 
-	player.anim_player.play("anim/anim_talking")
-	opponent.anim_player.play("anim/anim_talking")
+	player.reveal()
+	opponent.reveal()
 	await get_tree().create_timer(1).timeout
 	compare_choices()
 

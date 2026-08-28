@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clhlrfb78hu3y" path="res://scripts/main_menu.gd" id="1_3er1b"]
 [ext_resource type="Texture2D" uid="uid://pmx2rjmo4r2y" path="res://New/2D/Slap.png" id="2_2atga"]
+[ext_resource type="Shader" uid="uid://c47k8iju28572" path="res://scripts/buckshot_effect.gdshader" id="2_by01r"]
 [ext_resource type="Texture2D" uid="uid://br65akj1etuwq" path="res://New/2D/Rock.png" id="3_by01r"]
 [ext_resource type="Texture2D" uid="uid://cjbwnaewurwl7" path="res://New/2D/Paper.png" id="4_dclss"]
 [ext_resource type="Texture2D" uid="uid://chwnscjcihacs" path="res://New/2D/Scissors.png" id="5_hmxu4"]
@@ -22,8 +23,28 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1ry8"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dclss"]
+shader = ExtResource("2_by01r")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 3.0
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 16.0
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.07
+shader_parameter/vignette_strength = 1.0
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_1pbdy"]
 font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2atga"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_14wem"]
 font_size = 100
@@ -44,7 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2159017, 0.21590173, 0.2159017, 1)
+color = Color(0.13, 0.11938333, 0.1118, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1349098156]
 layout_mode = 1
@@ -125,7 +146,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_qpk70")
 theme_override_styles/hover = SubResource("StyleBoxFlat_xlg7c")
 text = "Quit"
 
-[node name="HBoxContainer" type="Control" parent="." unique_id=454822762]
+[node name="Control2" type="Control" parent="." unique_id=454822762]
 layout_mode = 1
 anchor_left = 0.367
 anchor_top = 0.5
@@ -138,7 +159,7 @@ offset_bottom = 150.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1584686751]
+[node name="TextureRect" type="TextureRect" parent="Control2" unique_id=1584686751]
 layout_mode = 0
 offset_left = 51.0
 offset_top = 12.0
@@ -148,7 +169,7 @@ texture = ExtResource("3_by01r")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=1853186961]
+[node name="TextureRect2" type="TextureRect" parent="Control2" unique_id=1853186961]
 layout_mode = 0
 offset_left = 183.0
 offset_top = -15.0
@@ -158,7 +179,7 @@ texture = ExtResource("4_dclss")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=1241573448]
+[node name="TextureRect3" type="TextureRect" parent="Control2" unique_id=1241573448]
 layout_mode = 0
 offset_left = 297.0
 offset_top = 4.9999847
@@ -168,7 +189,7 @@ texture = ExtResource("5_hmxu4")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer" unique_id=1256354053]
+[node name="TextureRect4" type="TextureRect" parent="Control2" unique_id=1256354053]
 layout_mode = 0
 offset_left = 480.0
 offset_top = -24.0
@@ -178,20 +199,30 @@ texture = ExtResource("6_ictww")
 expand_mode = 4
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=1583530928]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=563232457]
+material = SubResource("ShaderMaterial_dclss")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="." unique_id=1583530928]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.43300003
 anchor_top = 0.5
 anchor_right = 0.43300003
 anchor_bottom = 0.5
-offset_left = -266.728
-offset_top = -129.0
-offset_right = 346.27197
-offset_bottom = -94.0
+offset_left = -149.36005
+offset_top = -20.0
+offset_right = 613.63995
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "<          How much are you willing to loose this time ?           "
+text = "< < <                     How much are you willing to loose this time ?           "
 label_settings = SubResource("LabelSettings_1pbdy")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -206,6 +237,7 @@ offset_bottom = 220.0
 grow_horizontal = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-25, 25)
+theme_override_styles/panel = SubResource("StyleBoxFlat_2atga")
 
 [node name="MoneyLabel" type="Label" parent="Panel" unique_id=71557081]
 layout_mode = 1

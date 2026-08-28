@@ -213,6 +213,9 @@ _data = {
 &"anim_uppercut": ExtResource("7_jmvoe")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1pbdy"]
+radius = 0.2631836
+
 [node name="opponent" type="Node3D" unique_id=908181378]
 script = ExtResource("1_c5rdy")
 
@@ -712,3 +715,9 @@ bone_idx = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1360640732]
 libraries/anim = SubResource("AnimationLibrary_tpjjn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1478535636]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=127482000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_1pbdy")

@@ -1,12 +1,30 @@
 [gd_scene format=3 uid="uid://jyyaiyren0ev"]
 
 [ext_resource type="Script" uid="uid://b3ff1ftpluyow" path="res://scripts/results.gd" id="1_ppxcy"]
+[ext_resource type="Shader" uid="uid://c47k8iju28572" path="res://scripts/buckshot_effect.gdshader" id="2_4tvy5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ppxcy"]
 font_size = 70
 
 [sub_resource type="LabelSettings" id="LabelSettings_4tvy5"]
 font_size = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uu1k1"]
+shader = ExtResource("2_4tvy5")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 3.0
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 16.0
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.07
+shader_parameter/vignette_strength = 1.0
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [node name="Results" type="Control" unique_id=534913589]
 layout_mode = 3
@@ -57,3 +75,13 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 label_settings = SubResource("LabelSettings_4tvy5")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1819106089]
+material = SubResource("ShaderMaterial_uu1k1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
