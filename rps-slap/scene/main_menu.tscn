@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://dlakoofyqrpwl"]
 
 [ext_resource type="Script" uid="uid://clhlrfb78hu3y" path="res://scripts/main_menu.gd" id="1_3er1b"]
-[ext_resource type="Texture2D" uid="uid://pmx2rjmo4r2y" path="res://New/2D/Slap.png" id="2_2atga"]
 [ext_resource type="Shader" uid="uid://c47k8iju28572" path="res://scripts/buckshot_effect.gdshader" id="2_by01r"]
+[ext_resource type="Texture2D" uid="uid://bcu473cyhohmo" path="res://New/2D/Shlap.png" id="2_dclss"]
 [ext_resource type="Texture2D" uid="uid://br65akj1etuwq" path="res://New/2D/Rock.png" id="3_by01r"]
+[ext_resource type="FontFile" uid="uid://dwcca8qbja4h4" path="res://New/garamond-similar-fonts/Libre_Caslon_Text/LibreCaslonText-Regular.ttf" id="3_dclss"]
 [ext_resource type="Texture2D" uid="uid://cjbwnaewurwl7" path="res://New/2D/Paper.png" id="4_dclss"]
 [ext_resource type="Texture2D" uid="uid://chwnscjcihacs" path="res://New/2D/Scissors.png" id="5_hmxu4"]
 [ext_resource type="Texture2D" uid="uid://c580x3bnsnkx" path="res://New/2D/Hand.png" id="6_ictww"]
 
 [sub_resource type="Theme" id="Theme_0mmmg"]
 default_font_size = 30
+
+[sub_resource type="FontVariation" id="FontVariation_l4x63"]
+base_font = ExtResource("3_dclss")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1toly"]
 bg_color = Color(0, 0, 0, 1)
@@ -91,7 +95,7 @@ offset_top = -348.35556
 offset_right = 291.81
 offset_bottom = -51.35556
 grow_vertical = 2
-texture = ExtResource("2_2atga")
+texture = ExtResource("2_dclss")
 expand_mode = 1
 
 [node name="Panel" type="VBoxContainer" parent="Control" unique_id=958825641]
@@ -128,6 +132,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_l4x63")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_1toly")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qpk70")
@@ -140,6 +145,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dclss")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_p1ry8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qpk70")
@@ -222,6 +228,7 @@ offset_right = 613.63995
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dclss")
 text = "< < <                     How much are you willing to loose this time ?           "
 label_settings = SubResource("LabelSettings_1pbdy")
 horizontal_alignment = 1
@@ -252,6 +259,7 @@ offset_right = 72.0
 offset_bottom = 68.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dclss")
 label_settings = SubResource("LabelSettings_14wem")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://tp6ave2c8018" path="res://assets/right_heart_holder.png" id="6_sng2h"]
 [ext_resource type="Texture2D" uid="uid://p8ac3oi1l8i" path="res://New/2D/Heart.png" id="7_ym5sv"]
 [ext_resource type="Texture2D" uid="uid://bt3056jaibhpx" path="res://New/2D/Small/RockSmall.png" id="8_jrd6n"]
+[ext_resource type="FontFile" uid="uid://dwcca8qbja4h4" path="res://New/garamond-similar-fonts/Libre_Caslon_Text/LibreCaslonText-Regular.ttf" id="9_5g16k"]
 [ext_resource type="Texture2D" uid="uid://daamuwm7nrtk3" path="res://New/2D/Small/PaperSmall.png" id="9_jhlss"]
 [ext_resource type="Texture2D" uid="uid://bw3lhal461tt2" path="res://New/2D/Small/ScissorSmall.png" id="10_jrd6n"]
 [ext_resource type="Shader" uid="uid://c47k8iju28572" path="res://scripts/buckshot_effect.gdshader" id="11_ym5sv"]
@@ -127,6 +128,7 @@ offset_right = 221.0
 offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_5g16k")
 label_settings = SubResource("LabelSettings_ll5lq")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -144,6 +146,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_5g16k")
 label_settings = SubResource("LabelSettings_17rxn")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -184,6 +187,7 @@ anchor_bottom = 1.0
 offset_top = -42.0
 offset_right = 119.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_5g16k")
 text = "Rock"
 label_settings = SubResource("LabelSettings_1pbdy")
 horizontal_alignment = 1
@@ -210,6 +214,7 @@ anchor_bottom = 1.0
 offset_top = -42.0
 offset_right = 119.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_5g16k")
 text = "Paper"
 label_settings = SubResource("LabelSettings_1pbdy")
 horizontal_alignment = 1
@@ -236,6 +241,7 @@ anchor_bottom = 1.0
 offset_top = -42.0
 offset_right = 119.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_5g16k")
 text = "Scissor"
 label_settings = SubResource("LabelSettings_1pbdy")
 horizontal_alignment = 1
